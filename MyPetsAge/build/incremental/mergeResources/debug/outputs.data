@@ -1,0 +1,18 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1377800681000 262 560cc5d829de95a5fbc1d0b13ad3441370977b76 /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/menu/context_menu.xml
+1377720172000 10391 3d18d02219d4a330429cc64e8caccc8ec1c73521 /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/drawable-xxhdpi/ic_launcher.png
+1377726846000 1609 8edbda72e404677b546067a72a4c5c3804342e6f /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/values-nl/values.xml
+1377720171000 229 5619f87e3c494e6fcd36705259542b066ef7a2cd /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/values-sw720dp-land/values.xml
+1377726846000 769 b6d1d7cd8b7b1b2ab221af135810b97866063cba /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/layout/activity_main.xml
+1377801110000 1350 0c66331818efe9b2082288746368eac4b8c71729 /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/layout/list_element.xml
+1377726846000 2269 59f999a333e53686fda87c75f124e5f56e20a8d4 /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/values/values.xml
+1377720172000 5880 8ec776edc5a70e3d3a79e5e6220fb803f63b5e33 /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/drawable-xhdpi/ic_launcher.png
+1377720172000 2569 d8291c5f78144371d0e95b7e4d36471215daef49 /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/drawable-mdpi/ic_launcher.png
+1377723651000 344 b269afc77f1b02c811447a5f2d6b794f49d49930 /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/menu/main.xml
+1377728263000 1153 15c45af61dde503c0df12abdc4d7137bea256a7e /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/layout/activity_pet.xml
+1377720171000 312 1eec1c5eb65cd87d343820e67abb3b9a921ccd60 /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/values-v14/values.xml
+1377720171000 298 0b57ef84f801d983ae731b1d2df594c04d86ede3 /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/values-v11/values.xml
+1377724225000 504 c34fa072e9bcbdcd5eb36e8a63688cb5ef0f9baf /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/xml/preferences.xml
+1377720172000 4242 4f50b2a076a0b65811612aebe388863be1eb2aaf /srv/app/MyPetsAgeProject/MyPetsAge/build/res/all/debug/drawable-hdpi/ic_launcher.png

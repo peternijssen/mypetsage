@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">My Pet\'s Age</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add_pet">Add pet</string>
+    <string name="action_edit_pet">Edit pet</string>
+    <string name="action_delete_pet">Delete pet</string>
+
+    <string name="empty_petlist">No pets found! Add a pet</string>
+
+    <string name="pet_name">Name</string>
+    <string name="pet_dateofbirth">Date of Birth</string>
+
+    <string name="pet_age_regular">%1$d years, %2$d months, %3$d weeks, %4$d days</string>
+    <string name="pet_age_years">%1$d years</string>
+    <string name="pet_age_months">%1$d months</string>
+    <string name="pet_age_weeks">%1$d weeks</string>
+    <string name="pet_age_days">%1$d days</string>
+
+    <string name="settings_age_display">Age display</string>
+    <string name="settings_age_display_summary">Define the way how you want to display the age</string>
+</resources>
