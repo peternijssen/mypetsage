@@ -4,6 +4,16 @@
     <dataSet config="main" >
         <source path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res" >
             <file
+                name="widget_provider"
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/xml/widget_provider.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="preferences"
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/xml/preferences.xml"
+                qualifiers=""
+                type="xml" />
+            <file
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-v11/styles.xml"
                 qualifiers="v11" >
 
@@ -22,6 +32,11 @@
             <file
                 name="activity_pet"
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/layout/activity_pet.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="widget"
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/layout/widget.xml"
                 qualifiers=""
                 type="layout" />
             <file
@@ -46,10 +61,53 @@
                 </dimen>
             </file>
             <file
+                name="context_menu"
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/menu/context_menu.xml"
+                qualifiers=""
+                type="menu" />
+            <file
                 name="main"
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/menu/main.xml"
                 qualifiers=""
                 type="menu" />
+            <file
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values/arrays.xml"
+                qualifiers="" >
+                <string-array name="ageDisplayValues" >
+                    <item>
+0
+                    </item>
+                    <item>
+1
+                    </item>
+                    <item>
+2
+                    </item>
+                    <item>
+3
+                    </item>
+                    <item>
+4
+                    </item>
+                </string-array>
+                <string-array name="ageDisplay" >
+                    <item>
+Regular
+                    </item>
+                    <item>
+Days
+                    </item>
+                    <item>
+Weeks
+                    </item>
+                    <item>
+Months
+                    </item>
+                    <item>
+Years
+                    </item>
+                </string-array>
+            </file>
             <file
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values/dimens.xml"
                 qualifiers="" >
@@ -125,51 +183,6 @@
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
-                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-nl/strings.xml"
-                qualifiers="nl" >
-                <string name="pet_age_months" >%1$d maanden
-                </string>
-                <string name="pet_dateofbirth" >Geboortedatum
-                </string>
-                <string name="empty_petlist" >Geen huisdieren gevonden. Voeg een huisdier toe.
-                </string>
-                <string name="action_delete_pet" >Huisdier verwijderen
-                </string>
-                <string name="action_settings" >Instellingen
-                </string>
-                <string name="settings_age_display_summary" >Definieert hoe de leeftijd dient te worden weergegeven
-                </string>
-                <string name="action_edit_pet" >Huisdier wijzigen
-                </string>
-                <string name="app_name" >Leeftijd Huisdier
-                </string>
-                <string name="pet_age_years" >%1$d jaren
-                </string>
-                <string name="settings_age_display" >Leeftijdsweergave
-                </string>
-                <string name="pet_age_regular" >%1$d jaren, %2$d maanden, %3$d weken, %4$d dagen
-                </string>
-                <string name="pet_age_days" >%1$d dagen
-                </string>
-                <string name="pet_age_weeks" >%1$d weken
-                </string>
-                <string name="action_add_pet" >Huisdier toevoegen
-                </string>
-                <string name="pet_name" >Naam
-                </string>
-            </file>
-            <file
-                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-v14/styles.xml"
-                qualifiers="v14" >
-
-                <style
-                    name="AppBaseTheme"
-                    parent="android:Theme.Holo.Light.DarkActionBar" >
-
-                    <!-- API 14 theme customizations can go here. -->
-                </style>
-            </file>
-            <file
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-nl/arrays.xml"
                 qualifiers="nl" >
                 <string-array name="ageDisplayValues" >
@@ -208,53 +221,55 @@ Jaren
                 </string-array>
             </file>
             <file
-                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values/arrays.xml"
-                qualifiers="" >
-                <string-array name="ageDisplayValues" >
-                    <item>
-0
-                    </item>
-                    <item>
-1
-                    </item>
-                    <item>
-2
-                    </item>
-                    <item>
-3
-                    </item>
-                    <item>
-4
-                    </item>
-                </string-array>
-                <string-array name="ageDisplay" >
-                    <item>
-Regular
-                    </item>
-                    <item>
-Days
-                    </item>
-                    <item>
-Weeks
-                    </item>
-                    <item>
-Months
-                    </item>
-                    <item>
-Years
-                    </item>
-                </string-array>
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-nl/strings.xml"
+                qualifiers="nl" >
+                <string name="pet_age_months" >%1$d maanden
+                </string>
+                <string name="pet_dateofbirth" >Geboortedatum
+                </string>
+                <string name="empty_petlist" >Geen huisdieren gevonden. Voeg een huisdier toe.
+                </string>
+                <string name="action_delete_pet" >Huisdier verwijderen
+                </string>
+                <string name="action_settings" >Instellingen
+                </string>
+                <string name="settings_age_display_summary" >Definieert hoe de leeftijd dient te worden weergegeven
+                </string>
+                <string name="app_name" >Leeftijd Huisdier
+                </string>
+                <string name="action_edit_pet" >Huisdier wijzigen
+                </string>
+                <string name="pet_age_years" >%1$d jaren
+                </string>
+                <string name="settings_age_display" >Leeftijdsweergave
+                </string>
+                <string name="pet_age_regular" >%1$d jaren, %2$d maanden, %3$d weken, %4$d dagen
+                </string>
+                <string name="pet_age_days" >%1$d dagen
+                </string>
+                <string name="pet_age_weeks" >%1$d weken
+                </string>
+                <string name="action_add_pet" >Huisdier toevoegen
+                </string>
+                <string name="pet_name" >Naam
+                </string>
             </file>
             <file
-                name="preferences"
-                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/xml/preferences.xml"
-                qualifiers=""
-                type="xml" />
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-v14/styles.xml"
+                qualifiers="v14" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Holo.Light.DarkActionBar" >
+
+                    <!-- API 14 theme customizations can go here. -->
+                </style>
+            </file>
             <file
-                name="context_menu"
-                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/menu/context_menu.xml"
+                name="widget_preview"
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/drawable/widget_preview.png"
                 qualifiers=""
-                type="menu" />
+                type="drawable" />
         </source>
         <source path="/srv/app/MyPetsAgeProject/MyPetsAge/build/res/rs/debug" />
     </dataSet>

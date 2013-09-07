@@ -1,28 +1,25 @@
 package nl.peternijssen.mypetsage;
 
 import android.app.ListActivity;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.app.Activity;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
-import android.widget.ArrayAdapter;
-
-import org.w3c.dom.Comment;
 
 import java.util.List;
 
 import nl.peternijssen.mypetsage.database.PetsDataSource;
 import nl.peternijssen.mypetsage.model.Pet;
+import nl.peternijssen.mypetsage.widget.PetWidgetProvider;
 
 public class MainActivity extends ListActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -91,6 +88,7 @@ public class MainActivity extends ListActivity implements SharedPreferences.OnSh
                 ListAdapter adapter = (ListAdapter) getListAdapter();
                 adapter.setPets(datasource.getAllPets());
                 adapter.notifyDataSetChanged();
+                updateAllWidgets();
                 return true;
         }
         return false;
@@ -103,6 +101,7 @@ public class MainActivity extends ListActivity implements SharedPreferences.OnSh
                 ListAdapter adapter = (ListAdapter) getListAdapter();
                 adapter.setPets(datasource.getAllPets());
                 adapter.notifyDataSetChanged();
+                updateAllWidgets();
             }
             if (resultCode == RESULT_CANCELED) {
 
@@ -139,6 +138,15 @@ public class MainActivity extends ListActivity implements SharedPreferences.OnSh
     }
 
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        updateAllWidgets();
         isPreferenceChanged = true;
+    }
+
+    public void updateAllWidgets() {
+        Intent intent = new Intent(this,PetWidgetProvider.class);
+        intent.setAction("android.appwidget.action.APPWIDGET_UPDATE");
+        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), PetWidgetProvider.class));
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS,ids);
+        sendBroadcast(intent);
     }
 }

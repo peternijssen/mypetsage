@@ -3,7 +3,6 @@ package nl.peternijssen.mypetsage;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,24 +21,24 @@ import nl.peternijssen.mypetsage.model.Pet;
  */
 public class ListAdapter extends BaseAdapter {
 
-    private List<Pet> pets;
+    private List<Pet> petList;
     private Context context;
 
     public ListAdapter (List<Pet> t, Context co) {
-        pets = t;
+        petList = t;
         context = co;
     }
 
     public void setPets(List<Pet> pets) {
-        this.pets = pets;
+        this.petList = pets;
     }
 
     public int getCount() {
-        return pets.size();
+        return petList.size();
     }
 
     public Object getItem(int position) {
-        return pets.get(position);
+        return petList.get(position);
     }
 
     public long getItemId(int position) {
@@ -57,7 +56,7 @@ public class ListAdapter extends BaseAdapter {
         TextView nameView = (TextView)v.findViewById(R.id.PetName);
         TextView ageView = (TextView)v.findViewById(R.id.PetAge);
 
-        Pet p = pets.get(position);
+        Pet p = petList.get(position);
 
         nameView.setText(p.getName());
         ageView.setText(calculateAge(p.getDateOfBirth()));

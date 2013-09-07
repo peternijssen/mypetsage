@@ -14,6 +14,14 @@
         </activity>
         <activity android:label="@string/action_settings" android:name="nl.peternijssen.mypetsage.SettingsActivity">
         </activity>
-    </application>
 
+        <service android:name="nl.peternijssen.mypetsage.widget.PetWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+
+        <receiver android:name="nl.peternijssen.mypetsage.widget.PetWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider"/>
+        </receiver>
+    </application>
 </manifest>

@@ -1,6 +1,8 @@
 package nl.peternijssen.mypetsage;
 
 import android.app.Activity;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +18,7 @@ import java.util.Random;
 
 import nl.peternijssen.mypetsage.database.PetsDataSource;
 import nl.peternijssen.mypetsage.model.Pet;
+import nl.peternijssen.mypetsage.widget.PetWidgetProvider;
 
 public class PetActivity extends Activity {
 

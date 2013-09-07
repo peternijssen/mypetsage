@@ -16,6 +16,5 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:id="@android:id/list"/>
-
 </RelativeLayout>
 <!-- From: file:/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/layout/activity_main.xml -->

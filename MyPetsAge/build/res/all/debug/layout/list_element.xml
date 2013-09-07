@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/PetAge"
-            android:layout_gravity="left|top" />
+            android:layout_gravity="left|top"
+            android:textColor="#000000" />
     </LinearLayout>
 
 </LinearLayout><!-- From: file:/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/layout/list_element.xml -->

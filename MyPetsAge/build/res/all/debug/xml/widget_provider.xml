@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/widget"
+    android:minHeight="72dp"
+    android:minWidth="294dp"
+    android:minResizeHeight="72dp"
+    android:minResizeWidth="294dp"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="1000000"
+    android:previewImage="@drawable/widget_preview">
+</appwidget-provider><!-- From: file:/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/xml/widget_provider.xml -->
