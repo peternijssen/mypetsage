@@ -16,3 +16,8 @@ Features:
   - Weeks
   - Days
 - Widget (Android 3+)
+
+Translations
+=========
+Feel free to translate:
+https://www.transifex.com/projects/p/my-pets-age/
