@@ -17,6 +17,11 @@ Features:
   - Days
 - Widget (Android 3+)
 
+Downloading
+=========
+You can download the official app here:
+https://play.google.com/store/apps/details?id=nl.peternijssen.mypetsage&hl=en
+
 Contributing
 =========
 
