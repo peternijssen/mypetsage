@@ -1,4 +1,0 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_delete_pet"
-        android:title="@string/action_delete_pet" />
-</menu><!-- From: file:/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/menu/context_menu.xml -->
