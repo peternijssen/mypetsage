@@ -16,6 +16,8 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+    <!-- From: file:/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values/bools.xml -->
+    <bool name="honeycombOrAbove">false</bool>
     <!-- From: file:/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values/dimens.xml -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

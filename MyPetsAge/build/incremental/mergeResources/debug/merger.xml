@@ -14,6 +14,13 @@
                 qualifiers=""
                 type="xml" />
             <file
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-v11/bools.xml"
+                qualifiers="v11" >
+                <bool name="honeycombOrAbove" >
+true
+                </bool>
+            </file>
+            <file
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-v11/styles.xml"
                 qualifiers="v11" >
 
@@ -49,6 +56,78 @@
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/layout/list_element.xml"
                 qualifiers=""
                 type="layout" />
+            <file
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-pl/arrays.xml"
+                qualifiers="pl" >
+                <string-array name="ageDisplayValues" >
+                    <item>
+0
+                    </item>
+                    <item>
+1
+                    </item>
+                    <item>
+2
+                    </item>
+                    <item>
+3
+                    </item>
+                    <item>
+4
+                    </item>
+                </string-array>
+                <string-array name="ageDisplay" >
+                    <item>
+Regularnie
+                    </item>
+                    <item>
+Dni
+                    </item>
+                    <item>
+Tygodnie
+                    </item>
+                    <item>
+Miesiące
+                    </item>
+                    <item>
+Lata
+                    </item>
+                </string-array>
+            </file>
+            <file
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-pl/strings.xml"
+                qualifiers="pl" >
+                <string name="action_delete_pet" >Usuń zwierzaka
+                </string>
+                <string name="pet_name" >Imię
+                </string>
+                <string name="pet_age_weeks" >%1$d tygodni
+                </string>
+                <string name="empty_petlist" >Nie znaleziono żadnych zwierzaków. Dodaj je.
+                </string>
+                <string name="pet_dateofbirth" >Data urodzenia
+                </string>
+                <string name="pet_age_months" >%1$d miesięcy
+                </string>
+                <string name="pet_age_years" >%1$d lat
+                </string>
+                <string name="action_settings" >Ustawienia
+                </string>
+                <string name="pet_age_regular" >%1$d lat, %2$d miesięcy, %3$d tygodni, %4$d dni
+                </string>
+                <string name="pet_age_days" >%1$d dni
+                </string>
+                <string name="app_name" >Wiek mojego zwierzaka
+                </string>
+                <string name="action_add_pet" >Dodaj zwierzaka
+                </string>
+                <string name="settings_age_display_summary" >Zdefiniuj sposób w jaki chcesz wyświetlić wiek zwierzęcia
+                </string>
+                <string name="settings_age_display" >Wyświetlanie wieku
+                </string>
+                <string name="action_edit_pet" >Edytuj zwierzaka
+                </string>
+            </file>
             <file
                 name="ic_launcher"
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/drawable-xxhdpi/ic_launcher.png"
@@ -117,6 +196,13 @@ Years
                 </dimen>
             </file>
             <file
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values/bools.xml"
+                qualifiers="" >
+                <bool name="honeycombOrAbove" >
+false
+                </bool>
+            </file>
+            <file
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values/strings.xml"
                 qualifiers="" >
                 <string name="action_settings" >Settings
@@ -173,9 +259,86 @@ Years
                 </style>
             </file>
             <file
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-pt-rBR/arrays.xml"
+                qualifiers="pt-rBR" >
+                <string-array name="ageDisplay" >
+                    <item>
+Comum
+                    </item>
+                    <item>
+Dias
+                    </item>
+                    <item>
+Semanas
+                    </item>
+                    <item>
+Meses
+                    </item>
+                    <item>
+Anos
+                    </item>
+                </string-array>
+                <string-array name="ageDisplayValues" >
+                    <item>
+0
+                    </item>
+                    <item>
+1
+                    </item>
+                    <item>
+2
+                    </item>
+                    <item>
+3
+                    </item>
+                    <item>
+4
+                    </item>
+                </string-array>
+            </file>
+            <file
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-pt-rBR/strings.xml"
+                qualifiers="pt-rBR" >
+                <string name="pet_age_years" >%1$d anos
+                </string>
+                <string name="empty_petlist" >Nenhum animal de estimação encontrado! Adicione um animal de estimação
+                </string>
+                <string name="pet_dateofbirth" >Data de nascimento
+                </string>
+                <string name="settings_age_display" >Exibição de idade
+                </string>
+                <string name="action_add_pet" >Adicionar animal de estimação
+                </string>
+                <string name="settings_age_display_summary" >Define o modo como você deseja que a idade seja exibida
+                </string>
+                <string name="action_edit_pet" >Editar animal de estimação
+                </string>
+                <string name="pet_age_weeks" >%1$d semanas
+                </string>
+                <string name="pet_age_regular" >%1$d anos, %2$d meses, %3$d semanas, %4$d dias
+                </string>
+                <string name="pet_age_months" >%1$d meses
+                </string>
+                <string name="app_name" >A idade do meu animal de estimação
+                </string>
+                <string name="pet_name" >Nome
+                </string>
+                <string name="action_delete_pet" >Excluir animal de estimação
+                </string>
+                <string name="pet_age_days" >%1$d dias
+                </string>
+                <string name="action_settings" >Configurações
+                </string>
+            </file>
+            <file
                 name="ic_launcher"
                 path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/drawable-mdpi/ic_launcher.png"
                 qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="widget_preview"
+                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/drawable/widget_preview.png"
+                qualifiers=""
                 type="drawable" />
             <file
                 name="ic_launcher"
@@ -247,9 +410,9 @@ Jaren
                 </string>
                 <string name="pet_age_days" >%1$d dagen
                 </string>
-                <string name="pet_age_weeks" >%1$d weken
-                </string>
                 <string name="action_add_pet" >Huisdier toevoegen
+                </string>
+                <string name="pet_age_weeks" >%1$d weken
                 </string>
                 <string name="pet_name" >Naam
                 </string>
@@ -265,11 +428,6 @@ Jaren
                     <!-- API 14 theme customizations can go here. -->
                 </style>
             </file>
-            <file
-                name="widget_preview"
-                path="/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/drawable/widget_preview.png"
-                qualifiers=""
-                type="drawable" />
         </source>
         <source path="/srv/app/MyPetsAgeProject/MyPetsAge/build/res/rs/debug" />
     </dataSet>

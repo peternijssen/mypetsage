@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.peternijssen.mypetsage"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="4"
+    android:versionName="1.1" >
 
     <uses-sdk
         android:minSdkVersion="10"
@@ -33,7 +33,7 @@
 
         <service android:name="nl.peternijssen.mypetsage.widget.PetWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <receiver android:name="nl.peternijssen.mypetsage.widget.PetWidgetProvider">
+        <receiver android:name="nl.peternijssen.mypetsage.widget.PetWidgetProvider" android:enabled="@bool/honeycombOrAbove">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>

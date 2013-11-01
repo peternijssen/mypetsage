@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- From: file:/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-v11/bools.xml -->
+    <bool name="honeycombOrAbove">true</bool>
     <!-- From: file:/srv/app/MyPetsAgeProject/MyPetsAge/src/main/res/values-v11/styles.xml -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->
