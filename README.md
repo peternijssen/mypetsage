@@ -20,10 +20,10 @@ Features:
 Translations
 =========
 
-Dutch: Peter Nijssen
-English: Peter Nijssen
-Polish: Marcin Kralka
-Portuguese: Enrico Nicoletto
+- Dutch: Peter Nijssen
+- English: Peter Nijssen
+- Polish: Marcin Kralka
+- Portuguese: Enrico Nicoletto
 
 Feel free to translate:
 https://www.transifex.com/projects/p/my-pets-age/
