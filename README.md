@@ -17,13 +17,23 @@ Features:
   - Days
 - Widget (Android 3+)
 
+Contributing
+=========
+
+If you want to contribute, feel free to create issues or do pull requests.
+If you want to translate, have a look down below how you can translate.
+
+The app is created with the latest version of Android Studio
+
+
 Translations
 =========
+
+https://www.transifex.com/projects/p/my-pets-age/
 
 - Dutch: Peter Nijssen
 - English: Peter Nijssen
 - Polish: Marcin Kralka
 - Portuguese: Enrico Nicoletto
 
-Feel free to translate:
-https://www.transifex.com/projects/p/my-pets-age/
+
