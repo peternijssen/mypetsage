@@ -1,1 +1,1 @@
-include ':MyPetsAge'
+include ':mobile', ':wear'

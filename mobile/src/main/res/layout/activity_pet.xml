@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:columnCount="2"
+        android:rowCount="1">
+
+            <ImageButton
+                android:id="@+id/PetAvatar"
+                android:onClick="onClickAvatar"
+                android:layout_width="@dimen/thumbnail_width"
+                android:layout_height="@dimen/thumbnail_height"
+                android:contentDescription="@string/pet_avatar"
+                android:src="@drawable/ic_launcher"
+                android:background="@android:color/transparent" />
+
+            <EditText
+                android:id="@+id/PetName"
+                android:layout_height="wrap_content"
+                android:hint="@string/pet_name"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                style="@style/AppTheme"
+                android:paddingTop="10dp">
+            </EditText>
+
+        </GridLayout>
+
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/PetDateOfBirth"
+        android:layout_gravity="left|center_vertical"
+        android:calendarViewShown="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_add_pet"
+        android:id="@+id/SaveButton"
+        android:layout_gravity="start|center_vertical"
+        android:onClick="onClick"
+        style="@style/AppTheme" />
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
+
+    defaultConfig {
+        applicationId "nl.peternijssen.mypetsage"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 5
+        versionName "1.2"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    wearApp project(':wear')
+    compile 'com.google.android.gms:play-services:+'
+    compile 'com.soundcloud.android:android-crop:0.9.10@aar'
+}
