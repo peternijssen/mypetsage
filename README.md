@@ -4,7 +4,7 @@ My Pet's Age
 An android app to calculate and display the age of your pet.
 
 Requirements:
-- Android 2.3+
+- Android 6+
 
 Features:
 - Ability to add multiple pets
@@ -15,7 +15,6 @@ Features:
   - Months
   - Weeks
   - Days
-- Widget (Android 3+)
 
 Downloading
 =========
@@ -40,5 +39,10 @@ https://www.transifex.com/projects/p/my-pets-age/
 - English: Peter Nijssen
 - Polish: Marcin Kralka
 - Portuguese: Enrico Nicoletto
+- Spanish: Sandra Monferrer
+- Turkish: Sedanur Yeniyapı
+- Japanese: Naofumi
+- Italian: Matteo Ceccotti
+- German: Fiona Hagen
 
 
