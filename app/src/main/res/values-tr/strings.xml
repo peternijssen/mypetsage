@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">Benim hayvanımın yaşı</string>
+  <string name="action_settings">Ayarlar</string>
+  <string name="action_add_pet">Hayvan ekle</string>
+  <string name="action_edit_pet">Hayvan düzenle</string>
+  <string name="action_delete_pet">Hayvanı sil</string>
+  <string name="empty_petlist">Hiç hayvanın yok ! hadi ekle</string>
+  <string name="pet_name">Adı</string>
+  <string name="pet_avatar">Fotoğrafı</string>
+  <string name="pet_dateofbirth">Doğum Tarihi</string>
+  <string name="pet_age_regular">%1$d yıl,%2$d ay, %3$d hafta, %4$d gün</string>
+  <string name="pet_age_years">%1$d yıl</string>
+  <string name="pet_age_months">%1$d ay</string>
+  <string name="pet_age_weeks">%1$d hafta </string>
+  <string name="pet_age_days">%1$d gün</string>
+  <string name="settings_age_display">Yaş görüntüleme</string>
+  <string name="settings_age_display_summary">Yaşı nasıl görüntülemek istediğinizi seçin</string>
+</resources>

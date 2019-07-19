@@ -78,12 +78,7 @@ public class PetActivity extends AppCompatActivity {
             datasource.createPet(petName.getText().toString(), avatarFile.getAbsolutePath(), petDateOfBirth.getText().toString());
         }
 
-        Context context = getApplicationContext();
-        CharSequence text = petName.getText().toString() + " has been added!";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+        Toast.makeText(getApplicationContext(), String.format(getApplicationContext().getString(R.string.action_pet_created), petName.getText().toString()), Toast.LENGTH_SHORT).show();
 
         Intent returnIntent = new Intent();
         setResult(RESULT_OK, returnIntent);

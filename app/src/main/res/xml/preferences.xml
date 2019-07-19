@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/ageDisplay"
+        android:entryValues="@array/ageDisplayValues"
+        android:icon="@android:drawable/ic_menu_month"
+        android:key="ageDisplay"
+        android:summary="@string/settings_age_display_summary"
+        android:title="@string/settings_age_display" />
+</PreferenceScreen>

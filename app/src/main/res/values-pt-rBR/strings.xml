@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">A idade do meu animal de estimação</string>
+  <string name="action_settings">Configurações</string>
+  <string name="action_add_pet">Adicionar animal de estimação</string>
+  <string name="action_edit_pet">Editar animal de estimação</string>
+  <string name="action_delete_pet">Excluir animal de estimação</string>
+  <string name="empty_petlist">Nenhum animal de estimação encontrado! Adicione um animal de estimação</string>
+  <string name="pet_name">Nome</string>
+  <string name="pet_dateofbirth">Data de nascimento</string>
+  <string name="pet_age_regular">%1$d anos, %2$d meses, %3$d semanas, %4$d dias</string>
+  <string name="pet_age_years">%1$d anos</string>
+  <string name="pet_age_months">%1$d meses</string>
+  <string name="pet_age_weeks">%1$d semanas</string>
+  <string name="pet_age_days">%1$d dias</string>
+  <string name="settings_age_display">Exibição de idade</string>
+  <string name="settings_age_display_summary">Define o modo como você deseja que a idade seja exibida</string>
+</resources>

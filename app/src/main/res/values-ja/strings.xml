@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">My Pet\'s Age</string>
+  <string name="action_settings">設定</string>
+  <string name="action_add_pet">ペットを追加</string>
+  <string name="action_edit_pet">ペットを編集</string>
+  <string name="action_delete_pet">ペットを削除</string>
+  <string name="empty_petlist">ペットはいません! 追加してください</string>
+  <string name="pet_name">名前</string>
+  <string name="pet_avatar">写真</string>
+  <string name="pet_dateofbirth">誕生日</string>
+  <string name="pet_age_regular">%1$d 年, %2$d ヶ月, %3$d 週間, %4$d 日</string>
+  <string name="pet_age_years">%1$d 年</string>
+  <string name="pet_age_months">%1$d ヶ月</string>
+  <string name="pet_age_weeks">%1$d 週間</string>
+  <string name="pet_age_days">%1$d 日</string>
+  <string name="settings_age_display">年齢表示</string>
+  <string name="settings_age_display_summary">年齢の表示方法を定義します</string>
+</resources>
+

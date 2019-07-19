@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="general_margin">5dp</dimen>
+    <dimen name="avatar_size">100dp</dimen>
+</resources>

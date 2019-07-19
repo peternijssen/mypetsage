@@ -79,11 +79,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<PetHolder> {
                                 setPets(datasource.getAllPets());
                                 datasource.close();
 
-                                CharSequence text = p.getName() + " has been removed!";
-                                int duration = Toast.LENGTH_SHORT;
-
-                                Toast toast = Toast.makeText(context, text, duration);
-                                toast.show();
+                                Toast.makeText(context, String.format(context.getString(R.string.action_pet_deleted), p.getName()), Toast.LENGTH_SHORT).show();
 
                                 notifyDataSetChanged();
                                 return true;
