@@ -19,7 +19,7 @@ Features:
 Downloading
 =========
 You can download the official app here:
-https://play.google.com/store/apps/details?id=nl.peternijssen.mypetsage&hl=en
+https://play.google.com/store/apps/details?id=nl.peternijssen.mypetsage2
 
 Contributing
 =========
