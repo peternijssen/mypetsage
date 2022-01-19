@@ -16,12 +16,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import nl.peternijssen.mypetsage.database.PetsDataSource;
-import nl.peternijssen.mypetsage.model.Pet;
+import nl.peternijssen.mypetsage.dbs.DAOs;
+import nl.peternijssen.mypetsage.dbs.Databases;
+import nl.peternijssen.mypetsage.dbs.Entities;
 
 public class MainActivity extends AppCompatActivity {
 
-    public PetsDataSource datasource;
+    private DAOs.PetDao petDao;
+
     private RecyclerViewAdapter adapter;
 
     @Override
@@ -42,10 +44,11 @@ public class MainActivity extends AppCompatActivity {
         androidx.preference.PreferenceManager
                 .setDefaultValues(this, R.xml.preferences, false);
 
-        datasource = new PetsDataSource(this);
-        datasource.open();
+        Databases.PetDatabase petDatabase =
+                Databases.PetDatabase.getPetDatabase(this);
+        petDao = petDatabase.petDao();
 
-        List<Pet> pets = datasource.getAllPets();
+        List<Entities.Pet> pets = petDao.getAll();
 
         RecyclerView recyclerView = findViewById(R.id.PetList);
         adapter = new RecyclerViewAdapter(pets, getApplication());
@@ -79,9 +82,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                datasource.open();
-
-                adapter.setPets(datasource.getAllPets());
+                adapter.setPets(petDao.getAll());
                 adapter.notifyDataSetChanged();
             }
         }
@@ -89,29 +90,11 @@ public class MainActivity extends AppCompatActivity {
         handleVisibility();
     }
 
-    @Override
-    protected void onStart() {
-        datasource.open();
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        datasource.open();
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        datasource.close();
-        super.onPause();
-    }
-
     public void handleVisibility() {
         RecyclerView recyclerView = findViewById(R.id.PetList);
         TextView emptyView = findViewById(R.id.EmptyView);
 
-        if (datasource.getAllPets().isEmpty()) {
+        if (petDao.getAll().isEmpty()) {
             recyclerView.setVisibility(View.GONE);
             emptyView.setVisibility(View.VISIBLE);
         } else {

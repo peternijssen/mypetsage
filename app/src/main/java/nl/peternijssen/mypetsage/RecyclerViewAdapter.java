@@ -26,20 +26,21 @@ import org.joda.time.format.DateTimeFormatter;
 import java.io.File;
 import java.util.List;
 
-import nl.peternijssen.mypetsage.database.PetsDataSource;
-import nl.peternijssen.mypetsage.model.Pet;
+import nl.peternijssen.mypetsage.dbs.DAOs;
+import nl.peternijssen.mypetsage.dbs.Databases;
+import nl.peternijssen.mypetsage.dbs.Entities;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<PetHolder> {
 
-    private List<Pet> petList;
+    private List<Entities.Pet> petList;
     private Context context;
 
-    RecyclerViewAdapter(List<Pet> list, Context context) {
+    RecyclerViewAdapter(List<Entities.Pet> list, Context context) {
         this.petList = list;
         this.context = context;
     }
 
-    public void setPets(List<Pet> pets) {
+    public void setPets(List<Entities.Pet> pets) {
         this.petList = pets;
     }
 
@@ -51,12 +52,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<PetHolder> {
 
     @Override
     public void onBindViewHolder(final PetHolder holder, final int position) {
-        final Pet p = petList.get(position);
+        final Entities.Pet pet = petList.get(holder.getAdapterPosition());
 
-        holder.name.setText(p.getName());
-        holder.age.setText(calculateAge(p.getDateOfBirth()));
+        holder.name.setText(pet.getName());
+        holder.age.setText(calculateAge(pet.getDateOfBirth()));
 
-        File imgFile = new File(p.getAvatar());
+        File imgFile = new File(pet.getAvatar());
         if (imgFile.exists()) {
             Bitmap avatarBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             holder.avatar.setImageBitmap(avatarBitmap);
@@ -73,13 +74,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<PetHolder> {
 
                         switch (item.getItemId()) {
                             case R.id.deletePet:
-                                PetsDataSource datasource = new PetsDataSource(context);
-                                datasource.open();
-                                datasource.deletePet(datasource.getAllPets().get(position));
-                                setPets(datasource.getAllPets());
-                                datasource.close();
+                                Databases.PetDatabase petDatabase = Databases.PetDatabase.getPetDatabase(context);
+                                DAOs.PetDao petDao = petDatabase.petDao();
+                                petDao.delete(pet);
+                                setPets(petDao.getAll());
 
-                                Toast.makeText(context, String.format(context.getString(R.string.action_pet_deleted), p.getName()), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, String.format(context.getString(R.string.action_pet_deleted), pet.getName()), Toast.LENGTH_SHORT).show();
 
                                 notifyDataSetChanged();
                                 return true;

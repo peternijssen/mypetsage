@@ -26,13 +26,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import nl.peternijssen.mypetsage.database.PetsDataSource;
+import nl.peternijssen.mypetsage.dbs.DAOs;
+import nl.peternijssen.mypetsage.dbs.Databases;
+import nl.peternijssen.mypetsage.dbs.Entities;
 
 public class PetActivity extends AppCompatActivity {
 
     private static final int IMAGE = 100;
 
-    private PetsDataSource datasource;
+    private DAOs.PetDao petDao;
 
     private File avatarFile = null;
 
@@ -64,19 +66,22 @@ public class PetActivity extends AppCompatActivity {
             }
         });
 
-        datasource = new PetsDataSource(this);
-        datasource.open();
+        Databases.PetDatabase petDatabase =
+                Databases.PetDatabase.getPetDatabase(this);
+        petDao = petDatabase.petDao();
     }
 
     public void onClick(View view) {
         EditText petName = findViewById(R.id.PetName);
         EditText petDateOfBirth = findViewById(R.id.PetDateOfBirth);
 
+        Entities.Pet pet = null;
         if (avatarFile == null) {
-            datasource.createPet(petName.getText().toString(), "none", petDateOfBirth.getText().toString());
+            pet = new Entities.Pet(petName.getText().toString(), "none", petDateOfBirth.getText().toString());
         } else {
-            datasource.createPet(petName.getText().toString(), avatarFile.getAbsolutePath(), petDateOfBirth.getText().toString());
+            pet = new Entities.Pet(petName.getText().toString(), avatarFile.getAbsolutePath(), petDateOfBirth.getText().toString());
         }
+        petDao.insert(pet);
 
         Toast.makeText(getApplicationContext(), String.format(getApplicationContext().getString(R.string.action_pet_created), petName.getText().toString()), Toast.LENGTH_SHORT).show();
 
