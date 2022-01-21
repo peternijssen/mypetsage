@@ -9,8 +9,12 @@
     <string name="action_pet_created">%1$s is toegevoegd!</string>
     <string name="action_pet_updated">%1$s is gewijzigd!</string>
     <string name="action_pet_deleted">%1$s is verwijderd!</string>
+    <string name="action_pet_update_failed">Mislukt om huisdier te wijzigen!</string>
+    <string name="action_pet_not_saved">Mislukt om huisdier op te slaan!</string>
 
     <string name="empty_petlist">Geen huisdieren gevonden. Voeg een huisdier toe.</string>
+
+    <string name="pet_form_failed">Vul alle velden in om je huisdier op te slaan</string>
 
     <string name="pet_name">Naam</string>
     <string name="pet_avatar">Foto</string>

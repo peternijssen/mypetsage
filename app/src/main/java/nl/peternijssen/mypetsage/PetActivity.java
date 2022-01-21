@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -26,22 +27,47 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import nl.peternijssen.mypetsage.dbs.DAOs;
-import nl.peternijssen.mypetsage.dbs.Databases;
-import nl.peternijssen.mypetsage.dbs.Entities;
-
 public class PetActivity extends AppCompatActivity {
 
     private static final int IMAGE = 100;
 
-    private DAOs.PetDao petDao;
-
     private File avatarFile = null;
+
+    private EditText nameEdt, dateOfBirthEdt;
+    private Button saveBtn;
+
+    public static final String EXTRA_ID = "nl.peternijssen.mypetsage.EXTRA_ID";
+    public static final String EXTRA_NAME = "nl.peternijssen.mypetsage.EXTRA_NAME";
+    public static final String EXTRA_AVATAR = "nl.peternijssen.mypetsage.EXTRA_AVATAR";
+    public static final String EXTRA_DATE_OF_BIRTH = "nl.peternijssen.mypetsage.EXTRA_DATE_OF_BIRTH";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet);
+
+        nameEdt = findViewById(R.id.PetName);
+        dateOfBirthEdt = findViewById(R.id.PetDateOfBirth);
+        saveBtn = findViewById(R.id.SaveButton);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra(EXTRA_ID)) {
+            nameEdt.setText(intent.getStringExtra(EXTRA_NAME));
+            dateOfBirthEdt.setText(intent.getStringExtra(EXTRA_DATE_OF_BIRTH));
+            saveBtn.setText(R.string.action_edit_pet);
+            setTitle(R.string.action_edit_pet);
+
+            // Set avatar on edit
+            avatarFile = new File(intent.getStringExtra(EXTRA_AVATAR));
+            try {
+                InputStream inputStream = new FileInputStream(avatarFile);
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                ImageButton avatarBtn = findViewById(R.id.PetAvatar);
+                avatarBtn.setImageBitmap(bitmap);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
 
         Calendar calendar = Calendar.getInstance();
 
@@ -49,49 +75,54 @@ public class PetActivity extends AppCompatActivity {
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        final EditText petDateOfBirth = findViewById(R.id.PetDateOfBirth);
-        petDateOfBirth.setOnClickListener(new View.OnClickListener() {
+        dateOfBirthEdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(PetActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int years, int months, int days) {
-
                         String dates = days + "-" + (months + 1) + "-" + years;
-
-                        petDateOfBirth.setText(dates);
+                        dateOfBirthEdt.setText(dates);
                     }
                 }, year, month, day);
                 datePickerDialog.show();
             }
         });
 
-        Databases.PetDatabase petDatabase =
-                Databases.PetDatabase.getPetDatabase(this);
-        petDao = petDatabase.petDao();
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = nameEdt.getText().toString();
+                String dateOfBirth = dateOfBirthEdt.getText().toString();
+                if (name.isEmpty() || dateOfBirth.isEmpty()) {
+                    Toast.makeText(PetActivity.this, R.string.pet_form_failed, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                savePet(name, dateOfBirth);
+            }
+        });
     }
 
-    public void onClick(View view) {
-        EditText petName = findViewById(R.id.PetName);
-        EditText petDateOfBirth = findViewById(R.id.PetDateOfBirth);
+    private void savePet(String name, String dateOfBirth) {
+        Intent data = new Intent();
 
-        Entities.Pet pet = null;
+        data.putExtra(EXTRA_NAME, name);
         if (avatarFile == null) {
-            pet = new Entities.Pet(petName.getText().toString(), "none", petDateOfBirth.getText().toString());
+            data.putExtra(EXTRA_AVATAR, "none");
         } else {
-            pet = new Entities.Pet(petName.getText().toString(), avatarFile.getAbsolutePath(), petDateOfBirth.getText().toString());
+            data.putExtra(EXTRA_AVATAR, avatarFile.getAbsolutePath());
         }
-        petDao.insert(pet);
+        data.putExtra(EXTRA_DATE_OF_BIRTH, dateOfBirth);
+        int id = getIntent().getIntExtra(EXTRA_ID, -1);
+        if (id != -1) {
+            data.putExtra(EXTRA_ID, id);
+        }
 
-        Toast.makeText(getApplicationContext(), String.format(getApplicationContext().getString(R.string.action_pet_created), petName.getText().toString()), Toast.LENGTH_SHORT).show();
-
-        Intent returnIntent = new Intent();
-        setResult(RESULT_OK, returnIntent);
+        setResult(RESULT_OK, data);
         finish();
     }
 
     public void onClickAvatar(View view) {
-
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         String[] mimeTypes = {"image/jpeg", "image/png"};

@@ -8,8 +8,12 @@
     <string name="action_pet_created">%1$s has been added!</string>
     <string name="action_pet_updated">%1$s has been changed!</string>
     <string name="action_pet_deleted">%1$s has been deleted!</string>
+    <string name="action_pet_update_failed">failed to change pet!</string>
+    <string name="action_pet_not_saved">failed to save pet!</string>
 
     <string name="empty_petlist">No pets found! Add a pet</string>
+
+    <string name="pet_form_failed">Fill in all fields to save your pet</string>
 
     <string name="pet_name">Name</string>
     <string name="pet_avatar">Picture</string>

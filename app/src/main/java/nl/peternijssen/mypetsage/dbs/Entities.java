@@ -9,9 +9,9 @@ public class Entities {
     @Entity(tableName = "pets")
     public static class Pet {
 
-        @PrimaryKey
+        @PrimaryKey(autoGenerate = true)
         @ColumnInfo(name = "_id")
-        private long id;
+        private int id;
 
         @ColumnInfo(name = "name")
         private String name;
@@ -57,11 +57,11 @@ public class Entities {
             this.name = name;
         }
 
-        public long getId() {
+        public int getId() {
             return id;
         }
 
-        public void setId(long id) {
+        public void setId(int id) {
             this.id = id;
         }
     }

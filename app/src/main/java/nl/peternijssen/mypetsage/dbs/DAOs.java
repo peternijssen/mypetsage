@@ -1,5 +1,6 @@
 package nl.peternijssen.mypetsage.dbs;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,10 +14,7 @@ public class DAOs {
     public interface PetDao {
 
         @Query("SELECT * FROM pets")
-        List<Entities.Pet> getAll();
-
-        @Query("SELECT * FROM pets WHERE _id IN (:petIds)")
-        List<Entities.Pet> loadAllByIds(int[] petIds);
+        LiveData<List<Entities.Pet>> getAll();
 
         @Insert
         void insert(Entities.Pet pet);

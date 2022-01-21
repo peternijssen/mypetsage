@@ -5,13 +5,18 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.joda.time.DateTime;
@@ -24,35 +29,45 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import java.io.File;
-import java.util.List;
 
-import nl.peternijssen.mypetsage.dbs.DAOs;
-import nl.peternijssen.mypetsage.dbs.Databases;
 import nl.peternijssen.mypetsage.dbs.Entities;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<PetHolder> {
+public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecyclerViewAdapter.ViewHolder> {
 
-    private List<Entities.Pet> petList;
     private Context context;
 
-    RecyclerViewAdapter(List<Entities.Pet> list, Context context) {
-        this.petList = list;
+    private OnItemClickListener listener;
+
+    PetRecyclerViewAdapter(Context context) {
+        super(DIFF_CALLBACK);
         this.context = context;
     }
 
-    public void setPets(List<Entities.Pet> pets) {
-        this.petList = pets;
+    private static final DiffUtil.ItemCallback<Entities.Pet> DIFF_CALLBACK = new DiffUtil.ItemCallback<Entities.Pet>() {
+        @Override
+        public boolean areItemsTheSame(Entities.Pet oldItem, Entities.Pet newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(Entities.Pet oldItem, Entities.Pet newItem) {
+            return oldItem.getName().equals(newItem.getName()) &&
+                    oldItem.getAvatar().equals(newItem.getAvatar()) &&
+                    oldItem.getDateOfBirth().equals(newItem.getDateOfBirth());
+        }
+    };
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View item = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.row_layout, parent, false);
+        return new ViewHolder(item);
     }
 
     @Override
-    public PetHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout, parent, false);
-        return new PetHolder(v);
-    }
-
-    @Override
-    public void onBindViewHolder(final PetHolder holder, final int position) {
-        final Entities.Pet pet = petList.get(holder.getAdapterPosition());
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        Entities.Pet pet = getPetAt(holder.getAdapterPosition());
 
         holder.name.setText(pet.getName());
         holder.age.setText(calculateAge(pet.getDateOfBirth()));
@@ -62,47 +77,40 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<PetHolder> {
             Bitmap avatarBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             holder.avatar.setImageBitmap(avatarBitmap);
         }
+    }
 
-        holder.options.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PopupMenu popup = new PopupMenu(context, holder.options);
-                popup.inflate(R.menu.options_menu);
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView name, age, options;
+        ImageView avatar;
 
-                        switch (item.getItemId()) {
-                            case R.id.deletePet:
-                                Databases.PetDatabase petDatabase = Databases.PetDatabase.getPetDatabase(context);
-                                DAOs.PetDao petDao = petDatabase.petDao();
-                                petDao.delete(pet);
-                                setPets(petDao.getAll());
+        ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            name = itemView.findViewById(R.id.PetName);
+            age = itemView.findViewById(R.id.PetAge);
+            avatar = itemView.findViewById(R.id.PetAvatar);
+            options = itemView.findViewById(R.id.OptionButton);
 
-                                Toast.makeText(context, String.format(context.getString(R.string.action_pet_deleted), pet.getName()), Toast.LENGTH_SHORT).show();
-
-                                notifyDataSetChanged();
-                                return true;
-                            default:
-                                return false;
-                        }
+            options.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(getItem(position), options);
                     }
-                });
-
-                popup.show();
-
-            }
-        });
+                }
+            });
+        }
     }
 
-    @Override
-    public int getItemCount() {
-        return petList.size();
+    public interface OnItemClickListener {
+        void onItemClick(Entities.Pet pet, TextView options);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
-    @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
+    private Entities.Pet getPetAt(int position) {
+        return getItem(position);
     }
 
     private String calculateAge(String dateOfBirth) {
@@ -113,7 +121,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<PetHolder> {
         DateTime end = DateTime.now();
         Period period = new Period(start, end);
 
-        Integer ageDisplay = Integer.parseInt(sharedPrefs.getString("ageDisplay", "0"));
+        int ageDisplay = Integer.parseInt(sharedPrefs.getString("ageDisplay", "0"));
 
         String text;
 
