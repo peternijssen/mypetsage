@@ -9,6 +9,8 @@ Requirements:
 Features:
 - Ability to add multiple pets
 - Ability to delete a pet
+- Ability to edit a pet
+- Ability to include a picture
 - Show age in different formats:
   - Years, Months, Weeks, Days
   - Years
@@ -27,7 +29,7 @@ Contributing
 If you want to contribute, feel free to create issues or do pull requests.
 If you want to translate, have a look down below how you can translate.
 
-The app is created with the latest version of Android Studio
+The app is created with the latest version of Android Studio.
 
 
 Translations

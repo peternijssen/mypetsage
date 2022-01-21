@@ -29,17 +29,14 @@ import java.util.Date;
 
 public class PetActivity extends AppCompatActivity {
 
-    private static final int IMAGE = 100;
-
-    private File avatarFile = null;
-
-    private EditText nameEdt, dateOfBirthEdt;
-    private Button saveBtn;
-
     public static final String EXTRA_ID = "nl.peternijssen.mypetsage.EXTRA_ID";
     public static final String EXTRA_NAME = "nl.peternijssen.mypetsage.EXTRA_NAME";
     public static final String EXTRA_AVATAR = "nl.peternijssen.mypetsage.EXTRA_AVATAR";
     public static final String EXTRA_DATE_OF_BIRTH = "nl.peternijssen.mypetsage.EXTRA_DATE_OF_BIRTH";
+    private static final int IMAGE = 100;
+    private File avatarFile = null;
+    private EditText nameEdt, dateOfBirthEdt;
+    private Button saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

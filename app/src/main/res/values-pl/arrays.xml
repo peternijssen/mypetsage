@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string-array name="ageDisplay">
-    <item>Regularnie</item>
-    <item>Dni</item>
-    <item>Tygodnie</item>
-    <item>Miesiące</item>
-    <item>Lata</item>
-  </string-array>
-  <string-array name="ageDisplayValues">
-    <item>0</item>
-    <item>1</item>
-    <item>2</item>
-    <item>3</item>
-    <item>4</item>
-  </string-array>
+    <string-array name="ageDisplay">
+        <item>Regularnie</item>
+        <item>Dni</item>
+        <item>Tygodnie</item>
+        <item>Miesiące</item>
+        <item>Lata</item>
+    </string-array>
+    <string-array name="ageDisplayValues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>

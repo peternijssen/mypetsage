@@ -23,9 +23,7 @@ public class Databases {
     public abstract static class PetDatabase extends RoomDatabase {
         private static PetDatabase INSTANCE;
 
-        public abstract DAOs.PetDao petDao();
-
-        public static PetDatabase getPetDatabase(Context context){
+        public static PetDatabase getPetDatabase(Context context) {
             if (INSTANCE == null) {
                 INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                         PetDatabase.class, "pets.db").addMigrations(MIGRATION_1_2).allowMainThreadQueries().build();
@@ -33,9 +31,11 @@ public class Databases {
             return INSTANCE;
         }
 
-        public static void destroyInstance(){
+        public static void destroyInstance() {
             INSTANCE = null;
         }
+
+        public abstract DAOs.PetDao petDao();
     }
 
 }

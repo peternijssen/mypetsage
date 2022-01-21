@@ -5,13 +5,10 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,15 +31,6 @@ import nl.peternijssen.mypetsage.dbs.Entities;
 
 public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecyclerViewAdapter.ViewHolder> {
 
-    private Context context;
-
-    private OnItemClickListener listener;
-
-    PetRecyclerViewAdapter(Context context) {
-        super(DIFF_CALLBACK);
-        this.context = context;
-    }
-
     private static final DiffUtil.ItemCallback<Entities.Pet> DIFF_CALLBACK = new DiffUtil.ItemCallback<Entities.Pet>() {
         @Override
         public boolean areItemsTheSame(Entities.Pet oldItem, Entities.Pet newItem) {
@@ -56,6 +44,13 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
                     oldItem.getDateOfBirth().equals(newItem.getDateOfBirth());
         }
     };
+    private Context context;
+    private OnItemClickListener listener;
+
+    PetRecyclerViewAdapter(Context context) {
+        super(DIFF_CALLBACK);
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -79,32 +74,6 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
         }
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, age, options;
-        ImageView avatar;
-
-        ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            name = itemView.findViewById(R.id.PetName);
-            age = itemView.findViewById(R.id.PetAge);
-            avatar = itemView.findViewById(R.id.PetAvatar);
-            options = itemView.findViewById(R.id.OptionButton);
-
-            options.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    if (listener != null && position != RecyclerView.NO_POSITION) {
-                        listener.onItemClick(getItem(position), options);
-                    }
-                }
-            });
-        }
-    }
-
-    public interface OnItemClickListener {
-        void onItemClick(Entities.Pet pet, TextView options);
-    }
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
@@ -153,5 +122,32 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
         }
 
         return text;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Entities.Pet pet, TextView options);
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView name, age, options;
+        ImageView avatar;
+
+        ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            name = itemView.findViewById(R.id.PetName);
+            age = itemView.findViewById(R.id.PetAge);
+            avatar = itemView.findViewById(R.id.PetAvatar);
+            options = itemView.findViewById(R.id.OptionButton);
+
+            options.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(getItem(position), options);
+                    }
+                }
+            });
+        }
     }
 }

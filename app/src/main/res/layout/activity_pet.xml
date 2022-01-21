@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PetActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".PetActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,13 +49,14 @@
 
 
     </LinearLayout>
+
+
     <Button
+        android:id="@+id/SaveButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/action_add_pet"
+        android:layout_gravity="start|center_vertical"
         android:layout_margin="@dimen/general_margin"
-        android:id="@+id/SaveButton"
-        android:layout_gravity="start|center_vertical" />
-
+        android:text="@string/action_add_pet" />
 
 </LinearLayout>

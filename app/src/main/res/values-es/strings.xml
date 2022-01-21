@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Edad de mi mascota</string>
-  <string name="action_settings">Ajustes</string>
-  <string name="action_add_pet">Añadir mascota</string>
-  <string name="action_edit_pet">Editar mascota</string>
-  <string name="action_delete_pet">Borrar mascota</string>
-  <string name="empty_petlist">No hay ninguna mascota. Añade una.</string>
-  <string name="pet_name">Nombre</string>
-  <string name="pet_avatar">Imagen</string>
-  <string name="pet_dateofbirth">Fecha de nacimiento</string>
-  <string name="pet_age_regular">%1$d años, %2$d meses, %3$d semanas, %4$d días</string>
-  <string name="pet_age_years">%1$d años</string>
-  <string name="pet_age_months">%1$d meses</string>
-  <string name="pet_age_weeks">%1$d semanas</string>
-  <string name="pet_age_days">%1$d días</string>
-  <string name="settings_age_display">Visualización de edad</string>
-  <string name="settings_age_display_summary">Determina cómo quieres que aparezca la edad.</string>
+    <string name="app_name">Edad de mi mascota</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_add_pet">Añadir mascota</string>
+    <string name="action_edit_pet">Editar mascota</string>
+    <string name="action_delete_pet">Borrar mascota</string>
+    <string name="empty_petlist">No hay ninguna mascota. Añade una.</string>
+    <string name="pet_name">Nombre</string>
+    <string name="pet_avatar">Imagen</string>
+    <string name="pet_dateofbirth">Fecha de nacimiento</string>
+    <string name="pet_age_regular">%1$d años, %2$d meses, %3$d semanas, %4$d días</string>
+    <string name="pet_age_years">%1$d años</string>
+    <string name="pet_age_months">%1$d meses</string>
+    <string name="pet_age_weeks">%1$d semanas</string>
+    <string name="pet_age_days">%1$d días</string>
+    <string name="settings_age_display">Visualización de edad</string>
+    <string name="settings_age_display_summary">Determina cómo quieres que aparezca la edad.</string>
 </resources>

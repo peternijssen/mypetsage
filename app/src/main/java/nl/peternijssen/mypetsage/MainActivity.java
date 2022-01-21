@@ -2,7 +2,6 @@ package nl.peternijssen.mypetsage;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,8 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 import nl.peternijssen.mypetsage.dbs.DAOs;
@@ -29,10 +26,9 @@ import nl.peternijssen.mypetsage.dbs.Entities;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DAOs.PetDao petDao;
-
     private static final int ADD_PET_REQUEST = 1;
     private static final int EDIT_PET_REQUEST = 2;
+    private DAOs.PetDao petDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

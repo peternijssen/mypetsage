@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Alter meines Haustiers</string>
-  <string name="action_settings">Einstellungen</string>
-  <string name="action_add_pet">Haustier hinzufügen</string>
-  <string name="action_edit_pet">Haustier ändern</string>
-  <string name="action_delete_pet">Haustier löschen</string>
-  <string name="empty_petlist">Keine Haustiere gefunden! Bitte ein Haustier hinzufügen</string>
-  <string name="pet_name">Name</string>
-  <string name="pet_avatar">Foto</string>
-  <string name="pet_dateofbirth">Geburtsdatum</string>
-  <string name="pet_age_regular">%1$d Jahre, %2$d Monate, %3$d Wochen, %4$d Tage</string>
-  <string name="pet_age_years">%1$d Jahre</string>
-  <string name="pet_age_months">%1$d Monate</string>
-  <string name="pet_age_weeks">%1$d Wochen</string>
-  <string name="pet_age_days">%1$d Tage</string>
-  <string name="settings_age_display">Altersanzeige</string>
-  <string name="settings_age_display_summary">Wie soll das Alter angezeigt werden?</string>
+    <string name="app_name">Alter meines Haustiers</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_add_pet">Haustier hinzufügen</string>
+    <string name="action_edit_pet">Haustier ändern</string>
+    <string name="action_delete_pet">Haustier löschen</string>
+    <string name="empty_petlist">Keine Haustiere gefunden! Bitte ein Haustier hinzufügen</string>
+    <string name="pet_name">Name</string>
+    <string name="pet_avatar">Foto</string>
+    <string name="pet_dateofbirth">Geburtsdatum</string>
+    <string name="pet_age_regular">%1$d Jahre, %2$d Monate, %3$d Wochen, %4$d Tage</string>
+    <string name="pet_age_years">%1$d Jahre</string>
+    <string name="pet_age_months">%1$d Monate</string>
+    <string name="pet_age_weeks">%1$d Wochen</string>
+    <string name="pet_age_days">%1$d Tage</string>
+    <string name="settings_age_display">Altersanzeige</string>
+    <string name="settings_age_display_summary">Wie soll das Alter angezeigt werden?</string>
 </resources>
 
