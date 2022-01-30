@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <string name="app_name">Mitt kjæledyrs alder</string>
+    <string name="action_settings">Innstillinger</string>
+    <string name="action_add_pet">Legg til kjæledyr</string>
+    <string name="action_edit_pet">Rediger kjæledyr</string>
+    <string name="action_delete_pet">Slett kjæledyr</string>
+    <string name="action_pet_created">%1$s er lagt til!</string>
+    <string name="action_pet_updated">%1$s er endret!</string>
+    <string name="action_pet_deleted">%1$s har blitt slettet!</string>
+    <string name="action_pet_update_failed">klarte ikke å bytte kjæledyr!</string>
+    <string name="action_pet_not_saved">klarte ikke å redde kjæledyret!</string>
+    <string name="empty_petlist">Ingen kjæledyr funnet! Legg til et kjæledyr</string>
+    <string name="pet_form_failed">Fyll ut alle feltene for å redde kjæledyret ditt</string>
+    <string name="pet_name">Navn</string>
+    <string name="pet_avatar">Bilde</string>
+    <string name="pet_dateofbirth">Fødselsdato</string>
+    <string name="pet_age_regular">%1$d år, %2$d måneder, %3$d uker, %4$d dager</string>
+    <string name="pet_age_years">%1$d år</string>
+    <string name="pet_age_months">%1$d måneder</string>
+    <string name="pet_age_weeks">%1$d uker</string>
+    <string name="pet_age_days">%1$d dager</string>
+    <string name="settings_age_display">Aldersvisning</string>
+    <string name="settings_age_display_summary">Definer måten du vil vise alderen på</string>
+</resources>

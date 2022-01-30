@@ -19,7 +19,7 @@
     <string name="pet_avatar">Picture</string>
     <string name="pet_dateofbirth">Date of Birth</string>
 
-    <string name="pet_age_regular">%1$d years, %2$d months, %3$d weeks, %4$d days</string>
+    <string name="pet_age_regular">%1$d years, %2$d months, %3$d days</string>
     <string name="pet_age_years">%1$d years</string>
     <string name="pet_age_months">%1$d months</string>
     <string name="pet_age_weeks">%1$d weeks</string>

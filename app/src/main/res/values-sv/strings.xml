@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <string name="app_name">Mitt husdjurs ålder</string>
+    <string name="action_settings">inställningar</string>
+    <string name="action_add_pet">Lägg till husdjur</string>
+    <string name="action_edit_pet">Redigera husdjur</string>
+    <string name="action_delete_pet">Ta bort husdjur</string>
+    <string name="action_pet_created">%1$s har lagts till!</string>
+    <string name="action_pet_updated">%1$s har ändrats!</string>
+    <string name="action_pet_deleted">%1$s har tagits bort!</string>
+    <string name="action_pet_update_failed">misslyckades med att byta husdjur!</string>
+    <string name="action_pet_not_saved">misslyckades med att rädda husdjuret!</string>
+    <string name="empty_petlist">Inga husdjur hittades! Lägg till ett husdjur</string>
+    <string name="pet_form_failed">Fyll i alla fält för att rädda ditt husdjur</string>
+    <string name="pet_name">namn</string>
+    <string name="pet_avatar">Bild</string>
+    <string name="pet_dateofbirth">Födelsedatum</string>
+    <string name="pet_age_regular">%1$d år, %2$d månader, %3$d veckor, %4$d dagar</string>
+    <string name="pet_age_years">%1$d år</string>
+    <string name="pet_age_months">%1$d månader</string>
+    <string name="pet_age_weeks">%1$d veckor</string>
+    <string name="pet_age_days">%1$d dagar</string>
+    <string name="settings_age_display">Åldersvisning</string>
+    <string name="settings_age_display_summary">Definiera hur du vill visa åldern</string>
+</resources>

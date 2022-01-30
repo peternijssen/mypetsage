@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <string name="app_name">Usia Hewan Peliharaan Saya</string>
+    <string name="action_settings">Pengaturan</string>
+    <string name="action_add_pet">Tambahkan hewan peliharaan</string>
+    <string name="action_edit_pet">Edit hewan peliharaan</string>
+    <string name="action_delete_pet">Hapus hewan peliharaan</string>
+    <string name="action_pet_created">%1$s telah ditambahkan!</string>
+    <string name="action_pet_updated">%1$s telah diubah!</string>
+    <string name="action_pet_deleted">%1$s telah dihapus!</string>
+    <string name="action_pet_update_failed">gagal mengubah hewan peliharaan!</string>
+    <string name="action_pet_not_saved">gagal menyelamatkan hewan peliharaan!</string>
+    <string name="empty_petlist">Tidak ada hewan peliharaan yang ditemukan! Tambahkan hewan peliharaan</string>
+    <string name="pet_form_failed">Isi semua bidang untuk menyelamatkan hewan peliharaan Anda</string>
+    <string name="pet_name">Nama</string>
+    <string name="pet_avatar">Gambar</string>
+    <string name="pet_dateofbirth">Tanggal lahir</string>
+    <string name="pet_age_regular">%1$d tahun, %2$d bulan, %3$d minggu, %4$d hari</string>
+    <string name="pet_age_years">%1$d tahun</string>
+    <string name="pet_age_months">%1$d bulan</string>
+    <string name="pet_age_weeks">%1$d minggu</string>
+    <string name="pet_age_days">%1$d hari</string>
+    <string name="settings_age_display">Tampilan usia</string>
+    <string name="settings_age_display_summary">Tentukan cara Anda ingin menampilkan usia</string>
+</resources>

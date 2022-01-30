@@ -5,8 +5,15 @@
     <string name="action_add_pet">Adicionar animal de estimação</string>
     <string name="action_edit_pet">Editar animal de estimação</string>
     <string name="action_delete_pet">Excluir animal de estimação</string>
+    <string name="action_pet_created">%1$s foi adicionado!</string>
+    <string name="action_pet_updated">%1$s foi alterado!</string>
+    <string name="action_pet_deleted">%1$s foi excluído!</string>
+    <string name="action_pet_update_failed">não conseguiu mudar o animal de estimação!</string>
+    <string name="action_pet_not_saved">falhou ao salvar o animal de estimação!</string>
     <string name="empty_petlist">Nenhum animal de estimação encontrado! Adicione um animal de estimação</string>
+    <string name="pet_form_failed">Preencha todos os campos para salvar seu animal de estimação</string>
     <string name="pet_name">Nome</string>
+    <string name="pet_avatar">Foto</string>
     <string name="pet_dateofbirth">Data de nascimento</string>
     <string name="pet_age_regular">%1$d anos, %2$d meses, %3$d semanas, %4$d dias</string>
     <string name="pet_age_years">%1$d anos</string>

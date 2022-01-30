@@ -5,7 +5,13 @@
     <string name="action_add_pet">Aggiungi un animale</string>
     <string name="action_edit_pet">Modifica un animale</string>
     <string name="action_delete_pet">Cancella un animale</string>
+    <string name="action_pet_created">%1$s è stato aggiunto!</string>
+    <string name="action_pet_updated">%1$s è stato modificato!</string>
+    <string name="action_pet_deleted">%1$s è stato cancellato!</string>
+    <string name="action_pet_update_failed">non è riuscito a cambiare animale domestico!</string>
+    <string name="action_pet_not_saved">non è riuscito a salvare l\'animale domestico!</string>
     <string name="empty_petlist">Nessun animale trovato! Aggiungi un animale</string>
+    <string name="pet_form_failed">Compila tutti i campi per salvare il tuo animale domestico</string>
     <string name="pet_name">Nome</string>
     <string name="pet_avatar">Foto</string>
     <string name="pet_dateofbirth">Data di nascita</string>
@@ -17,4 +23,3 @@
     <string name="settings_age_display">Formato età</string>
     <string name="settings_age_display_summary">Decidi come vuoi visualizzare l\'età</string>
 </resources>
-

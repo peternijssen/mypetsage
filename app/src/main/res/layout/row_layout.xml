@@ -11,6 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
@@ -42,6 +43,15 @@
                 android:textColor="#915E49" />
 
             <TextView
+                android:id="@+id/PetDateOfBirth"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000" />
+
+            <TextView
                 android:id="@+id/PetAge"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +63,7 @@
 
         <TextView
             android:id="@+id/OptionButton"
-            android:layout_width="20dp"
+            android:layout_width="30dp"
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
             android:text="&#8942;"

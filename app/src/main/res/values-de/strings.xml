@@ -5,7 +5,13 @@
     <string name="action_add_pet">Haustier hinzufügen</string>
     <string name="action_edit_pet">Haustier ändern</string>
     <string name="action_delete_pet">Haustier löschen</string>
+    <string name="action_pet_created">%1$s wurde hinzugefügt!</string>
+    <string name="action_pet_updated">%1$s wurde geändert!</string>
+    <string name="action_pet_deleted">%1$s wurde gelöscht!</string>
+    <string name="action_pet_update_failed">Haustierwechsel fehlgeschlagen!</string>
+    <string name="action_pet_not_saved">Haustier konnte nicht gerettet werden!</string>
     <string name="empty_petlist">Keine Haustiere gefunden! Bitte ein Haustier hinzufügen</string>
+    <string name="pet_form_failed">Füllen Sie alle Felder aus, um Ihr Haustier zu retten</string>
     <string name="pet_name">Name</string>
     <string name="pet_avatar">Foto</string>
     <string name="pet_dateofbirth">Geburtsdatum</string>
@@ -17,4 +23,3 @@
     <string name="settings_age_display">Altersanzeige</string>
     <string name="settings_age_display_summary">Wie soll das Alter angezeigt werden?</string>
 </resources>
-

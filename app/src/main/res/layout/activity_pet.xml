@@ -47,9 +47,7 @@
                 android:inputType="date" />
         </LinearLayout>
 
-
     </LinearLayout>
-
 
     <Button
         android:id="@+id/SaveButton"

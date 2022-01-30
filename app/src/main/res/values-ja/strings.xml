@@ -5,7 +5,13 @@
     <string name="action_add_pet">ペットを追加</string>
     <string name="action_edit_pet">ペットを編集</string>
     <string name="action_delete_pet">ペットを削除</string>
+    <string name="action_pet_created">%1$sが追加されました！</string>
+    <string name="action_pet_updated">%1$sが変更されました！</string>
+    <string name="action_pet_deleted">%1$sが削除されました！</string>
+    <string name="action_pet_update_failed">ペットを変更できませんでした！</string>
+    <string name="action_pet_not_saved">ペットを救うことができませんでした！</string>
     <string name="empty_petlist">ペットはいません! 追加してください</string>
+    <string name="pet_form_failed">ペットを救うためにすべてのフィールドに入力してください</string>
     <string name="pet_name">名前</string>
     <string name="pet_avatar">写真</string>
     <string name="pet_dateofbirth">誕生日</string>
@@ -17,4 +23,3 @@
     <string name="settings_age_display">年齢表示</string>
     <string name="settings_age_display_summary">年齢の表示方法を定義します</string>
 </resources>
-

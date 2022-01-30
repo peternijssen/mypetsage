@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <string name="app_name">L\'âge de mon animal de compagnie</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="action_add_pet">Ajouter un animal de compagnie</string>
+    <string name="action_edit_pet">Modifier l\'animal de compagnie</string>
+    <string name="action_delete_pet">Supprimer l\'animal de compagnie</string>
+    <string name="action_pet_created">%1$s a été ajouté !</string>
+    <string name="action_pet_updated">%1$s a été modifié !</string>
+    <string name="action_pet_deleted">%1$s a été supprimé !</string>
+    <string name="action_pet_update_failed">n\'a pas réussi à changer d\'animal de compagnie !</string>
+    <string name="action_pet_not_saved">n\'a pas réussi à sauver l\'animal de compagnie !</string>
+    <string name="empty_petlist">Aucun animal de compagnie trouvé ! Ajouter un animal de compagnie</string>
+    <string name="pet_form_failed">Remplissez tous les champs pour sauvegarder votre animal de compagnie</string>
+    <string name="pet_name">Nom</string>
+    <string name="pet_avatar">Photo</string>
+    <string name="pet_dateofbirth">Date de naissance</string>
+    <string name="pet_age_regular">%1$d ans, %2$d mois, %3$d semaines, %4$d jours</string>
+    <string name="pet_age_years">%1$d ans</string>
+    <string name="pet_age_months">%1$d mois</string>
+    <string name="pet_age_weeks">%1$d semaines</string>
+    <string name="pet_age_days">%1$d jours</string>
+    <string name="settings_age_display">Affichage de l\'âge</string>
+    <string name="settings_age_display_summary">Définissez la manière dont vous souhaitez afficher l\'âge</string>
+</resources>

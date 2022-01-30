@@ -26,6 +26,11 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import nl.peternijssen.mypetsage.dbs.Entities;
 
@@ -64,7 +69,19 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Entities.Pet pet = getPetAt(holder.getAdapterPosition());
 
+        DateFormat df = new SimpleDateFormat("d-M-y", Locale.getDefault());
+        String dateOfBirth = pet.getDateOfBirth();
+
+        try {
+            Date dob = df.parse(pet.getDateOfBirth());
+            df = new SimpleDateFormat("d MMM y", Locale.getDefault());
+            dateOfBirth = df.format(dob);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         holder.name.setText(pet.getName());
+        holder.dateOfBirth.setText(dateOfBirth);
         holder.age.setText(calculateAge(pet.getDateOfBirth()));
 
         File imgFile = new File(pet.getAvatar());
@@ -117,7 +134,7 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
                 break;
             default:
                 text = context.getResources().getString(R.string.pet_age_regular);
-                text = String.format(text, period.getYears(), period.getMonths(), period.getWeeks(), period.getDays());
+                text = String.format(text, period.getYears(), period.getMonths(), ((period.getWeeks() * 7) + period.getDays()));
                 break;
         }
 
@@ -129,13 +146,14 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, age, options;
+        TextView name, age, dateOfBirth, options;
         ImageView avatar;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.PetName);
             age = itemView.findViewById(R.id.PetAge);
+            dateOfBirth = itemView.findViewById(R.id.PetDateOfBirth);
             avatar = itemView.findViewById(R.id.PetAvatar);
             options = itemView.findViewById(R.id.OptionButton);
 

@@ -5,7 +5,13 @@
     <string name="action_add_pet">Añadir mascota</string>
     <string name="action_edit_pet">Editar mascota</string>
     <string name="action_delete_pet">Borrar mascota</string>
+    <string name="action_pet_created">¡Se ha añadido %1$s!</string>
+    <string name="action_pet_updated">¡%1$s ha sido cambiado!</string>
+    <string name="action_pet_deleted">¡%1$s ha sido eliminado!</string>
+    <string name="action_pet_update_failed">¡No se pudo cambiar de mascota!</string>
+    <string name="action_pet_not_saved">¡No se pudo salvar a la mascota!</string>
     <string name="empty_petlist">No hay ninguna mascota. Añade una.</string>
+    <string name="pet_form_failed">Rellena todos los campos para salvar a tu mascota</string>
     <string name="pet_name">Nombre</string>
     <string name="pet_avatar">Imagen</string>
     <string name="pet_dateofbirth">Fecha de nacimiento</string>
