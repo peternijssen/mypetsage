@@ -8,9 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -36,7 +34,6 @@ public class PetActivity extends AppCompatActivity {
     private static final int IMAGE = 100;
     private File avatarFile = null;
     private EditText nameEdt, dateOfBirthEdt;
-    private Button saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +42,8 @@ public class PetActivity extends AppCompatActivity {
 
         nameEdt = findViewById(R.id.PetName);
         dateOfBirthEdt = findViewById(R.id.PetDateOfBirth);
-        saveBtn = findViewById(R.id.SaveButton);
+        ImageButton avatarBtn = findViewById(R.id.PetAvatar);
+        Button saveBtn = findViewById(R.id.SaveButton);
 
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ID)) {
@@ -59,7 +57,6 @@ public class PetActivity extends AppCompatActivity {
             try {
                 InputStream inputStream = new FileInputStream(avatarFile);
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                ImageButton avatarBtn = findViewById(R.id.PetAvatar);
                 avatarBtn.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -72,31 +69,30 @@ public class PetActivity extends AppCompatActivity {
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        dateOfBirthEdt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(PetActivity.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int years, int months, int days) {
-                        String dates = days + "-" + (months + 1) + "-" + years;
-                        dateOfBirthEdt.setText(dates);
-                    }
-                }, year, month, day);
-                datePickerDialog.show();
-            }
+        dateOfBirthEdt.setOnClickListener(v -> {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(PetActivity.this, (datePicker, years, months, days) -> {
+                String dates = days + "-" + (months + 1) + "-" + years;
+                dateOfBirthEdt.setText(dates);
+            }, year, month, day);
+            datePickerDialog.show();
         });
 
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = nameEdt.getText().toString();
-                String dateOfBirth = dateOfBirthEdt.getText().toString();
-                if (name.isEmpty() || dateOfBirth.isEmpty()) {
-                    Toast.makeText(PetActivity.this, R.string.pet_form_failed, Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                savePet(name, dateOfBirth);
+        avatarBtn.setOnClickListener(v -> {
+            Intent avatarIntent = new Intent(Intent.ACTION_PICK);
+            avatarIntent.setType("image/*");
+            String[] mimeTypes = {"image/jpeg", "image/png"};
+            avatarIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+            startActivityForResult(avatarIntent, IMAGE);
+        });
+
+        saveBtn.setOnClickListener(v -> {
+            String name = nameEdt.getText().toString();
+            String dateOfBirth = dateOfBirthEdt.getText().toString();
+            if (name.isEmpty() || dateOfBirth.isEmpty()) {
+                Toast.makeText(PetActivity.this, R.string.pet_form_failed, Toast.LENGTH_SHORT).show();
+                return;
             }
+            savePet(name, dateOfBirth);
         });
     }
 
@@ -117,14 +113,6 @@ public class PetActivity extends AppCompatActivity {
 
         setResult(RESULT_OK, data);
         finish();
-    }
-
-    public void onClickAvatar(View view) {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        String[] mimeTypes = {"image/jpeg", "image/png"};
-        intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
-        startActivityForResult(intent, IMAGE);
     }
 
     @Override

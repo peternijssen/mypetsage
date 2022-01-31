@@ -100,45 +100,48 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
     }
 
     private String calculateAge(String dateOfBirth) {
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.context);
+        try {
+            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.context);
 
-        DateTimeFormatter formatter = DateTimeFormat.forPattern("dd-MM-yyyy");
-        DateTime start = formatter.parseDateTime(dateOfBirth);
-        DateTime end = DateTime.now();
-        Period period = new Period(start, end);
+            DateTimeFormatter formatter = DateTimeFormat.forPattern("dd-MM-yyyy");
+            DateTime start = formatter.parseDateTime(dateOfBirth);
+            DateTime end = DateTime.now();
+            Period period = new Period(start, end);
 
-        int ageDisplay = Integer.parseInt(sharedPrefs.getString("ageDisplay", "0"));
+            int ageDisplay = Integer.parseInt(sharedPrefs.getString("ageDisplay", "0"));
 
-        String text;
+            String text;
 
-        switch (ageDisplay) {
-            case 1:
-                Days days = Days.daysBetween(start, end);
-                text = context.getResources().getString(R.string.pet_age_days);
-                text = String.format(text, days.getDays());
-                break;
-            case 2:
-                Weeks weeks = Weeks.weeksBetween(start, end);
-                text = context.getResources().getString(R.string.pet_age_weeks);
-                text = String.format(text, weeks.getWeeks());
-                break;
-            case 3:
-                Months months = Months.monthsBetween(start, end);
-                text = context.getResources().getString(R.string.pet_age_months);
-                text = String.format(text, months.getMonths());
-                break;
-            case 4:
-                Years years = Years.yearsBetween(start, end);
-                text = context.getResources().getString(R.string.pet_age_years);
-                text = String.format(text, years.getYears());
-                break;
-            default:
-                text = context.getResources().getString(R.string.pet_age_regular);
-                text = String.format(text, period.getYears(), period.getMonths(), ((period.getWeeks() * 7) + period.getDays()));
-                break;
+            switch (ageDisplay) {
+                case 1:
+                    Days days = Days.daysBetween(start, end);
+                    text = context.getResources().getString(R.string.pet_age_days);
+                    text = String.format(text, days.getDays());
+                    break;
+                case 2:
+                    Weeks weeks = Weeks.weeksBetween(start, end);
+                    text = context.getResources().getString(R.string.pet_age_weeks);
+                    text = String.format(text, weeks.getWeeks());
+                    break;
+                case 3:
+                    Months months = Months.monthsBetween(start, end);
+                    text = context.getResources().getString(R.string.pet_age_months);
+                    text = String.format(text, months.getMonths());
+                    break;
+                case 4:
+                    Years years = Years.yearsBetween(start, end);
+                    text = context.getResources().getString(R.string.pet_age_years);
+                    text = String.format(text, years.getYears());
+                    break;
+                default:
+                    text = context.getResources().getString(R.string.pet_age_regular);
+                    text = String.format(text, period.getYears(), period.getMonths(), ((period.getWeeks() * 7) + period.getDays()));
+                    break;
+            }
+            return text;
+        } catch (IllegalArgumentException exception) {
+            return dateOfBirth;
         }
-
-        return text;
     }
 
     public interface OnItemClickListener {
@@ -157,13 +160,10 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
             avatar = itemView.findViewById(R.id.PetAvatar);
             options = itemView.findViewById(R.id.OptionButton);
 
-            options.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    if (listener != null && position != RecyclerView.NO_POSITION) {
-                        listener.onItemClick(getItem(position), options);
-                    }
+            options.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                if (listener != null && position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(getItem(position), options);
                 }
             });
         }

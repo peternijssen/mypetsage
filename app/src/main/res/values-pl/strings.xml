@@ -10,12 +10,12 @@
     <string name="action_pet_deleted">%1$s został usunięty!</string>
     <string name="action_pet_update_failed">nie udało się zmienić zwierzaka!</string>
     <string name="action_pet_not_saved">nie udało się uratować zwierzaka!</string>
-    <string name="empty_petlist">Nie znaleziono żadnych zwierzaków. Dodaj je.</string>
+    <string name="empty_pet_list">Nie znaleziono żadnych zwierzaków. Dodaj je.</string>
     <string name="pet_form_failed">Wypełnij wszystkie pola, aby uratować swojego zwierzaka</string>
     <string name="pet_name">Imię</string>
     <string name="pet_avatar">Obrazek</string>
-    <string name="pet_dateofbirth">Data urodzenia</string>
-    <string name="pet_age_regular">%1$d lat, %2$d miesięcy, %3$d tygodni, %4$d dni</string>
+    <string name="pet_date_of_birth">Data urodzenia</string>
+    <string name="pet_age_regular">%1$d lat, %2$d miesięcy, %3$d dni</string>
     <string name="pet_age_years">%1$d lat</string>
     <string name="pet_age_months">%1$d miesięcy</string>
     <string name="pet_age_weeks">%1$d tygodni</string>

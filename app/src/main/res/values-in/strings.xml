@@ -10,12 +10,12 @@
     <string name="action_pet_deleted">%1$s telah dihapus!</string>
     <string name="action_pet_update_failed">gagal mengubah hewan peliharaan!</string>
     <string name="action_pet_not_saved">gagal menyelamatkan hewan peliharaan!</string>
-    <string name="empty_petlist">Tidak ada hewan peliharaan yang ditemukan! Tambahkan hewan peliharaan</string>
+    <string name="empty_pet_list">Tidak ada hewan peliharaan yang ditemukan! Tambahkan hewan peliharaan</string>
     <string name="pet_form_failed">Isi semua bidang untuk menyelamatkan hewan peliharaan Anda</string>
     <string name="pet_name">Nama</string>
     <string name="pet_avatar">Gambar</string>
-    <string name="pet_dateofbirth">Tanggal lahir</string>
-    <string name="pet_age_regular">%1$d tahun, %2$d bulan, %3$d minggu, %4$d hari</string>
+    <string name="pet_date_of_birth">Tanggal lahir</string>
+    <string name="pet_age_regular">%1$d tahun, %2$d bulan, %3$d hari</string>
     <string name="pet_age_years">%1$d tahun</string>
     <string name="pet_age_months">%1$d bulan</string>
     <string name="pet_age_weeks">%1$d minggu</string>

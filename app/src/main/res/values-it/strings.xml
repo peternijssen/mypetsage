@@ -10,12 +10,12 @@
     <string name="action_pet_deleted">%1$s è stato cancellato!</string>
     <string name="action_pet_update_failed">non è riuscito a cambiare animale domestico!</string>
     <string name="action_pet_not_saved">non è riuscito a salvare l\'animale domestico!</string>
-    <string name="empty_petlist">Nessun animale trovato! Aggiungi un animale</string>
+    <string name="empty_pet_list">Nessun animale trovato! Aggiungi un animale</string>
     <string name="pet_form_failed">Compila tutti i campi per salvare il tuo animale domestico</string>
     <string name="pet_name">Nome</string>
     <string name="pet_avatar">Foto</string>
-    <string name="pet_dateofbirth">Data di nascita</string>
-    <string name="pet_age_regular">%1$d anni, %2$d mesi, %3$d settimane, %4$d giorni</string>
+    <string name="pet_date_of_birth">Data di nascita</string>
+    <string name="pet_age_regular">%1$d anni, %2$d mesi, %3$d giorni</string>
     <string name="pet_age_years">%1$d anni</string>
     <string name="pet_age_months">%1$d mesi</string>
     <string name="pet_age_weeks">%1$d settimane</string>

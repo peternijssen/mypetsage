@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Leeftijd Huisdier</string>
     <string name="action_settings">Instellingen</string>
+    <string name="action_about">Over deze App</string>
     <string name="action_add_pet">Huisdier toevoegen</string>
     <string name="action_edit_pet">Huisdier wijzigen</string>
     <string name="action_delete_pet">Huisdier verwijderen</string>
@@ -10,16 +11,20 @@
     <string name="action_pet_deleted">%1$s is verwijderd!</string>
     <string name="action_pet_update_failed">Mislukt om huisdier te wijzigen!</string>
     <string name="action_pet_not_saved">Mislukt om huisdier op te slaan!</string>
-    <string name="empty_petlist">Geen huisdieren gevonden. Voeg een huisdier toe.</string>
+    <string name="empty_pet_list">Geen huisdieren gevonden. Voeg een huisdier toe.</string>
     <string name="pet_form_failed">Vul alle velden in om je huisdier op te slaan</string>
     <string name="pet_name">Naam</string>
     <string name="pet_avatar">Foto</string>
-    <string name="pet_dateofbirth">Geboortedatum</string>
-    <string name="pet_age_regular">%1$d jaren, %2$d maanden, %3$d weken, %4$d dagen</string>
+    <string name="pet_date_of_birth">Geboortedatum</string>
+    <string name="pet_age_regular">%1$d jaren, %2$d maanden, %3$d dagen</string>
     <string name="pet_age_years">%1$d jaren</string>
     <string name="pet_age_months">%1$d maanden</string>
     <string name="pet_age_weeks">%1$d weken</string>
     <string name="pet_age_days">%1$d dagen</string>
     <string name="settings_age_display">Leeftijdsweergave</string>
     <string name="settings_age_display_summary">Definieert hoe de leeftijd dient te worden weergegeven</string>
+    <string name="app_version">App Versie</string>
+    <string name="app_build_number">Buildnummer</string>
+    <string name="app_support_address">Ondersteuning</string>
+    <string name="app_privacy_policy">Privacybeleid</string>
 </resources>

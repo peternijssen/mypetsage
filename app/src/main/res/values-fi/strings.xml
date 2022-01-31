@@ -10,12 +10,12 @@
     <string name="action_pet_deleted">%1$s on poistettu!</string>
     <string name="action_pet_update_failed">lemmikin vaihto epäonnistui!</string>
     <string name="action_pet_not_saved">lemmikin pelastus epäonnistui!</string>
-    <string name="empty_petlist">Lemmikkieläimiä ei löytynyt! Lisää lemmikki</string>
+    <string name="empty_pet_list">Lemmikkieläimiä ei löytynyt! Lisää lemmikki</string>
     <string name="pet_form_failed">Täytä kaikki kentät tallentaaksesi lemmikkisi</string>
     <string name="pet_name">Nimi</string>
     <string name="pet_avatar">Kuva</string>
-    <string name="pet_dateofbirth">Syntymäaika</string>
-    <string name="pet_age_regular">%1$d vuotta, %2$d kuukautta, %3$d viikkoa, %4$d päivää</string>
+    <string name="pet_date_of_birth">Syntymäaika</string>
+    <string name="pet_age_regular">%1$d vuotta, %2$d kuukautta, %3$d päivää</string>
     <string name="pet_age_years">%1$d vuotta</string>
     <string name="pet_age_months">%1$d kuukautta</string>
     <string name="pet_age_weeks">%1$d viikkoa</string>

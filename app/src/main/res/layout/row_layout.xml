@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -40,7 +41,7 @@
                 android:paddingBottom="5dp"
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#915E49" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/PetDateOfBirth"
@@ -68,8 +69,14 @@
             android:gravity="center_vertical"
             android:text="&#8942;"
             android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimary"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary" />
 
 </androidx.cardview.widget.CardView>

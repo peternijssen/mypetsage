@@ -18,7 +18,6 @@
             android:layout_height="@dimen/avatar_size"
             android:background="@android:color/transparent"
             android:contentDescription="@string/pet_avatar"
-            android:onClick="onClickAvatar"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_foreground" />
 
@@ -33,7 +32,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/pet_name"
-                android:inputType="textPersonName|textCapSentences" />
+                android:inputType="textPersonName|textCapSentences"
+                android:autofillHints="false" />
 
             <EditText
                 android:id="@+id/PetDateOfBirth"
@@ -43,8 +43,9 @@
                 android:cursorVisible="false"
                 android:ems="10"
                 android:focusable="false"
-                android:hint="@string/pet_dateofbirth"
-                android:inputType="date" />
+                android:hint="@string/pet_date_of_birth"
+                android:inputType="date"
+                android:autofillHints="false" />
         </LinearLayout>
 
     </LinearLayout>

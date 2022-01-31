@@ -10,12 +10,12 @@
     <string name="action_pet_deleted">%1$s er blevet slettet!</string>
     <string name="action_pet_update_failed">undlod at skifte kæledyr!</string>
     <string name="action_pet_not_saved">det lykkedes ikke at redde kæledyret!</string>
-    <string name="empty_petlist">Ingen kæledyr fundet! Tilføj et kæledyr</string>
+    <string name="empty_pet_list">Ingen kæledyr fundet! Tilføj et kæledyr</string>
     <string name="pet_form_failed">Udfyld alle felter for at redde dit kæledyr</string>
     <string name="pet_name">Navn</string>
     <string name="pet_avatar">Billede</string>
-    <string name="pet_dateofbirth">Fødselsdato</string>
-    <string name="pet_age_regular">%1$d år, %2$d måneder, %3$d uger, %4$d dage</string>
+    <string name="pet_date_of_birth">Fødselsdato</string>
+    <string name="pet_age_regular">%1$d år, %2$d måneder, %3$d dage</string>
     <string name="pet_age_years">%1$d år</string>
     <string name="pet_age_months">%1$d måneder</string>
     <string name="pet_age_weeks">%1$d uger</string>
