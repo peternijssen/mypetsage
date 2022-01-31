@@ -39,13 +39,13 @@ public class AboutFragment extends Fragment {
         TextView privacyPolicy = view.findViewById(R.id.appPrivacyPolicy);
         privacyPolicy.setOnClickListener(v -> {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.peternijssen.nl/privacy_policy_app.html"));
-            startActivity(Intent.createChooser(browserIntent, "Open Privacy Policy"));
+            startActivity(browserIntent);
         });
 
         TextView translations = view.findViewById(R.id.appTranslations);
         translations.setOnClickListener(v -> {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.transifex.com/peter-nijssen/my-pets-age/"));
-            startActivity(Intent.createChooser(browserIntent, "Open Translations"));
+            startActivity(browserIntent);
         });
     }
 
