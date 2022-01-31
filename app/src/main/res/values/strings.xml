@@ -2,9 +2,9 @@
     <string name="app_name">My Pet\'s Age</string>
     <string name="action_settings">Settings</string>
     <string name="action_about">About this App</string>
-    <string name="action_add_pet">Add pet</string>
-    <string name="action_edit_pet">Edit pet</string>
-    <string name="action_delete_pet">Delete pet</string>
+    <string name="action_add_pet">Add Pet</string>
+    <string name="action_edit_pet">Edit Pet</string>
+    <string name="action_delete_pet">Delete Pet</string>
 
     <string name="action_pet_created">%1$s has been added!</string>
     <string name="action_pet_updated">%1$s has been changed!</string>
@@ -26,11 +26,12 @@
     <string name="pet_age_weeks">%1$d weeks</string>
     <string name="pet_age_days">%1$d days</string>
 
-    <string name="settings_age_display">Age display</string>
+    <string name="settings_age_display">Age Display</string>
     <string name="settings_age_display_summary">Define the way how you want to display the age</string>
 
     <string name="app_version">App Version</string>
     <string name="app_build_number">Build Number</string>
-    <string name="app_support_address">Support Address</string>
+    <string name="app_support_address">Support</string>
+    <string name="app_translations">Translations</string>
     <string name="app_privacy_policy">Privacy Policy</string>
 </resources>

@@ -26,5 +26,6 @@
     <string name="app_version">App Versie</string>
     <string name="app_build_number">Buildnummer</string>
     <string name="app_support_address">Ondersteuning</string>
+    <string name="app_translations">Vertalingen</string>
     <string name="app_privacy_policy">Privacybeleid</string>
 </resources>

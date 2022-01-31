@@ -30,6 +30,18 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            ext.enableCrashlytics = false
+        }
+    }
+    flavorDimensions "all"
+    productFlavors {
+        dev {
+            versionNameSuffix "-dev"
+            resConfigs "en", "xxhdpi"
+        }
+        prod {
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -46,12 +58,10 @@ android {
 }
 
 dependencies {
-    def room_version = "2.4.1"
-
     implementation platform('com.google.firebase:firebase-bom:29.0.4')
 
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-runtime:2.4.1"
+    annotationProcessor "androidx.room:room-compiler:2.4.1"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.4.1'

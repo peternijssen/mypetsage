@@ -16,6 +16,7 @@
             android:id="@+id/PetAvatar"
             android:layout_width="@dimen/avatar_size"
             android:layout_height="@dimen/avatar_size"
+            android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
             android:contentDescription="@string/pet_avatar"
             android:scaleType="centerCrop"
@@ -31,21 +32,25 @@
                 android:id="@+id/PetName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="false"
                 android:hint="@string/pet_name"
                 android:inputType="textPersonName|textCapSentences"
-                android:autofillHints="false" />
+                android:minHeight="48dp"
+                android:textColorHint="#546E7A" />
 
             <EditText
                 android:id="@+id/PetDateOfBirth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="false"
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:ems="10"
                 android:focusable="false"
                 android:hint="@string/pet_date_of_birth"
                 android:inputType="date"
-                android:autofillHints="false" />
+                android:minHeight="48dp"
+                android:textColorHint="#546E7A" />
         </LinearLayout>
 
     </LinearLayout>
@@ -56,6 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start|center_vertical"
         android:layout_margin="@dimen/general_margin"
-        android:text="@string/action_add_pet" />
+        android:background="@color/colorPrimary"
+        android:text="@string/action_add_pet"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>
