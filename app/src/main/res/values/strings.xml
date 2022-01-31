@@ -5,6 +5,7 @@
     <string name="action_add_pet">Add Pet</string>
     <string name="action_edit_pet">Edit Pet</string>
     <string name="action_delete_pet">Delete Pet</string>
+    <string name="action_save_pet">Save Pet</string>
 
     <string name="action_pet_created">%1$s has been added!</string>
     <string name="action_pet_updated">%1$s has been changed!</string>

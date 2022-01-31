@@ -8,7 +8,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -40,26 +41,28 @@ public class PetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         nameEdt = findViewById(R.id.PetName);
         dateOfBirthEdt = findViewById(R.id.PetDateOfBirth);
         ImageButton avatarBtn = findViewById(R.id.PetAvatar);
-        Button saveBtn = findViewById(R.id.SaveButton);
 
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ID)) {
             nameEdt.setText(intent.getStringExtra(EXTRA_NAME));
             dateOfBirthEdt.setText(intent.getStringExtra(EXTRA_DATE_OF_BIRTH));
-            saveBtn.setText(R.string.action_edit_pet);
             setTitle(R.string.action_edit_pet);
 
             // Set avatar on edit
             avatarFile = new File(intent.getStringExtra(EXTRA_AVATAR));
-            try {
-                InputStream inputStream = new FileInputStream(avatarFile);
-                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                avatarBtn.setImageBitmap(bitmap);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            if (avatarFile.exists()) {
+                try {
+                    InputStream inputStream = new FileInputStream(avatarFile);
+                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                    avatarBtn.setImageBitmap(bitmap);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -84,16 +87,33 @@ public class PetActivity extends AppCompatActivity {
             avatarIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
             startActivityForResult(avatarIntent, IMAGE);
         });
+    }
 
-        saveBtn.setOnClickListener(v -> {
-            String name = nameEdt.getText().toString();
-            String dateOfBirth = dateOfBirthEdt.getText().toString();
-            if (name.isEmpty() || dateOfBirth.isEmpty()) {
-                Toast.makeText(PetActivity.this, R.string.pet_form_failed, Toast.LENGTH_SHORT).show();
-                return;
-            }
-            savePet(name, dateOfBirth);
-        });
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.pet_save_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_save:
+                String name = nameEdt.getText().toString();
+                String dateOfBirth = dateOfBirthEdt.getText().toString();
+                if (name.isEmpty() || dateOfBirth.isEmpty()) {
+                    Toast.makeText(PetActivity.this, R.string.pet_form_failed, Toast.LENGTH_SHORT).show();
+                } else {
+                    savePet(name, dateOfBirth);
+                }
+                break;
+            case android.R.id.home:
+                setResult(RESULT_CANCELED);
+                this.finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void savePet(String name, String dateOfBirth) {

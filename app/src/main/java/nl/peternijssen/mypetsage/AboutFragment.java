@@ -30,10 +30,10 @@ public class AboutFragment extends Fragment {
         TextView supportAddress = view.findViewById(R.id.appSupportAddress);
         supportAddress.setOnClickListener(v -> {
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+            emailIntent.setData(Uri.parse("mailto:"));
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Question regarding My Pet's Age");
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, Uri.parse("mailto:mypetsage@peternijssen.nl"));
-
-            startActivity(Intent.createChooser(emailIntent, "Send email..."));
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, "mypetsage@peternijssen.nl");
+            startActivity(emailIntent);
         });
 
         TextView privacyPolicy = view.findViewById(R.id.appPrivacyPolicy);

@@ -4,7 +4,7 @@
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
+    android:clickable="false"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground">
 
@@ -73,10 +73,4 @@
             tools:ignore="HardcodedText" />
 
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorPrimary" />
-
 </androidx.cardview.widget.CardView>

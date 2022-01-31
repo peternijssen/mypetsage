@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,23 @@ public class MainActivity extends AppCompatActivity {
     private static final int ADD_PET_REQUEST = 1;
     private static final int EDIT_PET_REQUEST = 2;
     private DAOs.PetDao petDao;
+
+    /*@Override
+    public void onStart() {
+        super.onStart();
+        final SharedPreferences settings = getSharedPreferences("localPreferences", MODE_PRIVATE);
+        if (settings.getBoolean("isFirstRun", true)) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Cookies")
+                    .setMessage("Your message for visitors here")
+                    .setNeutralButton("Close message", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            settings.edit().putBoolean("isFirstRun", false).apply();
+                        }
+                    }).show();
+        }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView petRecyclerView = findViewById(R.id.PetList);
         petRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         petRecyclerView.setHasFixedSize(true);
+        petRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         final PetRecyclerViewAdapter adapter = new PetRecyclerViewAdapter(getApplicationContext());
         petRecyclerView.setAdapter(adapter);
 
@@ -83,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
@@ -107,6 +126,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_CANCELED) {
+            return;
+        }
+
         if (requestCode == ADD_PET_REQUEST && resultCode == RESULT_OK) {
             String name = data.getStringExtra(PetActivity.EXTRA_NAME);
             String avatar = data.getStringExtra(PetActivity.EXTRA_AVATAR);

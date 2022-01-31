@@ -6,6 +6,7 @@
     <string name="action_add_pet">Huisdier toevoegen</string>
     <string name="action_edit_pet">Huisdier wijzigen</string>
     <string name="action_delete_pet">Huisdier verwijderen</string>
+    <string name="action_save_pet">Huisdier opslaan</string>
     <string name="action_pet_created">%1$s is toegevoegd!</string>
     <string name="action_pet_updated">%1$s is gewijzigd!</string>
     <string name="action_pet_deleted">%1$s is verwijderd!</string>
