@@ -37,11 +37,11 @@ android {
     }
     flavorDimensions "all"
     productFlavors {
+        prod {
+        }
         dev {
             versionNameSuffix "-dev"
             resConfigs "en", "xxhdpi"
-        }
-        prod {
         }
     }
     compileOptions {
