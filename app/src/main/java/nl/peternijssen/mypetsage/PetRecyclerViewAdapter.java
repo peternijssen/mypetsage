@@ -96,6 +96,7 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
         this.listener = listener;
     }
 
+
     private Entities.Pet getPetAt(int position) {
         return getItem(position);
     }

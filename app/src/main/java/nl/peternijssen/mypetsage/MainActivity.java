@@ -26,23 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int EDIT_PET_REQUEST = 2;
     private DAOs.PetDao petDao;
 
-    /*@Override
-    public void onStart() {
-        super.onStart();
-        final SharedPreferences settings = getSharedPreferences("localPreferences", MODE_PRIVATE);
-        if (settings.getBoolean("isFirstRun", true)) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Cookies")
-                    .setMessage("Your message for visitors here")
-                    .setNeutralButton("Close message", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            settings.edit().putBoolean("isFirstRun", false).apply();
-                        }
-                    }).show();
-        }
-    }*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         petDao = petDatabase.petDao();
 
         RecyclerView petRecyclerView = findViewById(R.id.PetList);
+
         petRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         petRecyclerView.setHasFixedSize(true);
         petRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
