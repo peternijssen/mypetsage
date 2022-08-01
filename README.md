@@ -35,7 +35,7 @@ The app is created with the latest version of Android Studio.
 Translations
 =========
 
-https://www.transifex.com/projects/p/my-pets-age/
+https://www.transifex.com/peter-nijssen/my-pets-age/
 
 - Dutch: Peter Nijssen
 - English: Peter Nijssen
