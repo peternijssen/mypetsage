@@ -76,11 +76,11 @@ public class PetActivity extends AppCompatActivity implements AdapterView.OnItem
 
             Date dateOfBirth = new Date();
             dateOfBirth.setTime(intent.getLongExtra(PetActivity.EXTRA_DATE_OF_BIRTH, -1));
-            dateOfBirthEdt.setText(dateOfBirth.toString());
+            dateOfBirthEdt.setText(new SimpleDateFormat("d-M-yyyy", Locale.getDefault()).format(dateOfBirth));
 
             Date dateOfDecease = new Date();
             dateOfDecease.setTime(intent.getLongExtra(PetActivity.EXTRA_DATE_OF_DECEASE, -1));
-            dateOfDeceaseEdt.setText(dateOfDecease.toString());
+            dateOfDeceaseEdt.setText(new SimpleDateFormat("d-M-yyyy", Locale.getDefault()).format(dateOfDecease));
 
             String petStatus = intent.getStringExtra(EXTRA_STATUS);
             if (petStatus.equals("deceased")) {

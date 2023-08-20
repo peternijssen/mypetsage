@@ -14,7 +14,7 @@ android {
         applicationId "nl.peternijssen.mypetsage2"
         minSdkVersion 26
         targetSdkVersion 33
-        versionCode 10
+        versionCode 11
         versionName "2.1.5"
         javaCompileOptions {
             annotationProcessorOptions {
