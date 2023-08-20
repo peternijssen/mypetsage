@@ -15,6 +15,7 @@
     <string name="pet_name">Navn</string>
     <string name="pet_avatar">Billede</string>
     <string name="pet_date_of_birth">Fødselsdato</string>
+    <string name="pet_date_of_decease">Dødsdato</string>
     <string name="pet_age_regular">%1$d år, %2$d måneder, %3$d dage</string>
     <string name="pet_age_years">%1$d år</string>
     <string name="pet_age_months">%1$d måneder</string>

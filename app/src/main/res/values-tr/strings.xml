@@ -9,6 +9,7 @@
     <string name="pet_name">Adı</string>
     <string name="pet_avatar">Fotoğrafı</string>
     <string name="pet_date_of_birth">Doğum Tarihi</string>
+    <string name="pet_date_of_decease">ölüm tarihi</string>
     <string name="pet_age_regular">%1$d yıl, %2$d ay, %3$d gün</string>
     <string name="pet_age_years">%1$d yıl</string>
     <string name="pet_age_months">%1$d ay</string>

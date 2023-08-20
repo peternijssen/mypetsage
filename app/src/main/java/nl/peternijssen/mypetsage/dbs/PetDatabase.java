@@ -61,8 +61,6 @@ public abstract class PetDatabase extends RoomDatabase {
     static final Migration MIGRATION_3_4 = new Migration(3, 4) {
         @Override
         public void migrate(SupportSQLiteDatabase database) {
-            Log.e("peternijssen", "Migration 3 to 4");
-
             database.execSQL("ALTER TABLE pets RENAME TO petstemp");
             database.execSQL("CREATE TABLE pets (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT, avatar TEXT, date_of_birth INTEGER, date_of_decease INTEGER DEFAULT NULL, status TEXT DEFAULT 'alive')");
 
@@ -82,13 +80,17 @@ public abstract class PetDatabase extends RoomDatabase {
 
                 DateFormat df = new SimpleDateFormat("d-M-y", Locale.getDefault());
                 try {
-                    dateOfBirth = df.parse(dob);
+                    if (dob != null) {
+                        dateOfBirth = df.parse(dob);
+                    }
                 }  catch (ParseException e) {
                     // Do nothing
                 }
 
                 try {
-                    dateOfDecease = df.parse(dod);
+                    if (dod != null) {
+                        dateOfDecease = df.parse(dod);
+                    }
                 }  catch (ParseException e) {
                     // Do nothing
                 }
@@ -100,8 +102,6 @@ public abstract class PetDatabase extends RoomDatabase {
                 if (dateOfDecease != null) {
                     contentValues.put("date_of_decease", dateOfDecease.getTime());
                 }
-
-                Log.e("peternijssen", contentValues.toString());
 
                 database.insert("pets", SQLiteDatabase.CONFLICT_REPLACE, contentValues);
             }

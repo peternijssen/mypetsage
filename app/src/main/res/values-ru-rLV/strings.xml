@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <string name="app_name">Возраст моих питомцев</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_about">О приложении</string>
+    <string name="action_add_pet">Добавить питомца</string>
+    <string name="action_edit_pet">Редактировать питомца</string>
+    <string name="action_delete_pet">Удалить питомца</string>
+    <string name="action_save_pet">Сохранить питомца</string>
+    <string name="action_pet_created">Питомец %1$s был добавлен!</string>
+    <string name="action_pet_updated">Питомец %1$s был изменён!</string>
+    <string name="action_pet_deleted">Питомец %1$s был удалён!</string>
+    <string name="action_pet_update_failed">не удалось изменить питомца!</string>
+    <string name="action_pet_not_saved">не удалось сохранить питомца!</string>
+    <string name="empty_pet_list">Питомцы не найдены! Добавьте питомца</string>
+    <string name="pet_form_failed">Заполните все поля, чтобы сохранить вашего потимца</string>
+    <string name="pet_name">Имя</string>
+    <string name="pet_avatar">Изображение</string>
+    <string name="pet_date_of_birth">Дата рождения</string>
+    <string name="pet_age_regular">%1$d год/лет, %2$d месяц/месяцев, %3$d день/дней</string>
+    <string name="pet_age_years">%1$d год/лет</string>
+    <string name="pet_age_months">%1$d месяц/месяцев</string>
+    <string name="pet_age_weeks">%1$d неделя/недель</string>
+    <string name="pet_age_days">%1$d день/дней</string>
+    <string name="settings_age_display">Отображение возраста</string>
+    <string name="settings_age_display_summary">Укажите как будет отображаться возраст</string>
+    <string name="app_version">Версия приложения</string>
+    <string name="app_build_number">Номер сборки</string>
+    <string name="app_support_address">Поддержка</string>
+    <string name="app_translations">Преводы</string>
+    <string name="app_privacy_policy">Политика конфиденциальности</string>
+</resources>

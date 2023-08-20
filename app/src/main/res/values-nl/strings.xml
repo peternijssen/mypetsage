@@ -17,6 +17,7 @@
     <string name="pet_name">Naam</string>
     <string name="pet_avatar">Foto</string>
     <string name="pet_date_of_birth">Geboortedatum</string>
+    <string name="pet_date_of_decease">Overlijdensdatum</string>
     <string name="pet_age_regular">%1$d jaren, %2$d maanden, %3$d dagen</string>
     <string name="pet_age_years">%1$d jaren</string>
     <string name="pet_age_months">%1$d maanden</string>

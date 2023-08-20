@@ -14,4 +14,8 @@
         <item> 3 </item>
         <item> 4 </item>
     </string-array>
+    <string-array name="petStatus">
+        <item>Levande</item>
+        <item>Den avlidne</item>
+    </string-array>
 </resources>

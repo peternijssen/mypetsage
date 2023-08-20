@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +33,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import nl.peternijssen.mypetsage.dbs.Pet;
 
 public class PetActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -76,7 +79,7 @@ public class PetActivity extends AppCompatActivity implements AdapterView.OnItem
             dateOfBirthEdt.setText(dateOfBirth.toString());
 
             Date dateOfDecease = new Date();
-            dateOfBirth.setTime(intent.getLongExtra(PetActivity.EXTRA_DATE_OF_DECEASE, -1));
+            dateOfDecease.setTime(intent.getLongExtra(PetActivity.EXTRA_DATE_OF_DECEASE, -1));
             dateOfDeceaseEdt.setText(dateOfDecease.toString());
 
             String petStatus = intent.getStringExtra(EXTRA_STATUS);
@@ -226,12 +229,12 @@ public class PetActivity extends AppCompatActivity implements AdapterView.OnItem
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        status = String.valueOf(parent.getItemAtPosition(pos)).toLowerCase();
-
-        if (status.equals("deceased")) {
+        if (pos == 1) {
             dateOfDeceaseEdt.setVisibility(View.VISIBLE);
+            status = "deceased";
         } else {
             dateOfDeceaseEdt.setVisibility(View.GONE);
+            status = "alive";
         }
     }
 

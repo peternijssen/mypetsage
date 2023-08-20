@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra(PetActivity.EXTRA_DATE_OF_BIRTH, pet.getDateOfBirth().getTime());
                         intent.putExtra(PetActivity.EXTRA_AVATAR, pet.getAvatar());
                         intent.putExtra(PetActivity.EXTRA_STATUS, pet.getStatus());
-                        intent.putExtra(PetActivity.EXTRA_DATE_OF_DECEASE, pet.getDateOfDecease().getTime());
+                        intent.putExtra(PetActivity.EXTRA_DATE_OF_DECEASE, (pet.getDateOfDecease() == null) ? -1 : pet.getDateOfDecease().getTime());
 
                         startActivityForResult(intent, EDIT_PET_REQUEST);
                         return true;

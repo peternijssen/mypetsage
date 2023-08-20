@@ -6,6 +6,8 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
+import android.util.Log;
+
 import java.util.Date;
 
 @Entity(tableName = "pets")
@@ -42,7 +44,11 @@ public class Pet {
         this.avatar = avatar;
         this.dateOfBirth = dateOfBirth;
         this.status = status;
-        this.dateOfDecease = dateOfDecease;
+        if (status.equals("alive")) {
+            this.dateOfDecease = null;
+        } else {
+            this.dateOfDecease = dateOfDecease;
+        }
     }
 
     public int getId() {
