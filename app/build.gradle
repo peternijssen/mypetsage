@@ -9,20 +9,13 @@ repositories {
 }
 
 android {
-    compileSdkVersion 32
     defaultConfig {
+        compileSdk 33
         applicationId "nl.peternijssen.mypetsage2"
-        minSdkVersion 21
-        targetSdkVersion 32
-        versionCode 6
-        versionName "2.1.4"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
-            }
-        }
+        minSdkVersion 26
+        targetSdkVersion 33
+        versionCode 8
+        versionName "2.1.5"
     }
     buildTypes {
         release {
@@ -41,7 +34,7 @@ android {
         }
         dev {
             versionNameSuffix "-dev"
-            resConfigs "en", "xxhdpi"
+            resourceConfigurations += ['en', 'xxhdpi']
         }
     }
     compileOptions {
@@ -52,26 +45,25 @@ android {
         includeInApk true
         includeInBundle true
     }
-    buildToolsVersion '30.0.3'
     buildFeatures {
         viewBinding true
     }
+    namespace 'nl.peternijssen.mypetsage'
 }
 
 dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.4')
 
-    implementation "androidx.room:room-runtime:2.4.1"
-    annotationProcessor "androidx.room:room-compiler:2.4.1"
-
+    implementation "androidx.room:room-runtime:2.5.2"
+    annotationProcessor "androidx.room:room-compiler:2.5.2"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'androidx.preference:preference:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'joda-time:joda-time:2.10.13'
-    implementation 'com.github.yalantis:ucrop:2.2.7'
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.github.yalantis:ucrop:2.2.8'
+    implementation 'com.google.firebase:firebase-analytics:21.3.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.4.0'
 }

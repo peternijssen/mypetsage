@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
@@ -20,7 +21,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:contentDescription="@string/pet_avatar"
-            android:src="@drawable/ic_launcher_foreground" />
+            android:src="@drawable/ic_launcher_foreground"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -33,15 +35,34 @@
             android:focusableInTouchMode="false"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/PetName"
-                android:layout_width="fill_parent"
+            <LinearLayout
                 android:layout_height="wrap_content"
-                android:layout_gravity="start|top"
-                android:paddingBottom="5dp"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/colorPrimary" />
+                android:layout_width="match_parent"
+                android:layout_gravity="start"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/rainbowIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:contentDescription="@string/pet_date_of_decease"
+                    android:src="@drawable/ic_rainbow_24dp"
+                    app:srcCompat="@drawable/ic_rainbow_24dp" />
+
+                <TextView
+                    android:id="@+id/PetName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:paddingBottom="5dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/PetDateOfBirth"

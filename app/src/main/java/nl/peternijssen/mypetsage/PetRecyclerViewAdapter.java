@@ -1,5 +1,6 @@
 package nl.peternijssen.mypetsage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -22,32 +23,29 @@ import org.joda.time.Months;
 import org.joda.time.Period;
 import org.joda.time.Weeks;
 import org.joda.time.Years;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
 import java.io.File;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import nl.peternijssen.mypetsage.dbs.Entities;
+import nl.peternijssen.mypetsage.dbs.Pet;
 
-public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecyclerViewAdapter.ViewHolder> {
+public class PetRecyclerViewAdapter extends ListAdapter<Pet, PetRecyclerViewAdapter.ViewHolder> {
 
-    private static final DiffUtil.ItemCallback<Entities.Pet> DIFF_CALLBACK = new DiffUtil.ItemCallback<Entities.Pet>() {
+    private static final DiffUtil.ItemCallback<Pet> DIFF_CALLBACK = new DiffUtil.ItemCallback<Pet>() {
         @Override
-        public boolean areItemsTheSame(Entities.Pet oldItem, Entities.Pet newItem) {
+        public boolean areItemsTheSame(Pet oldItem, Pet newItem) {
             return oldItem.getId() == newItem.getId();
         }
 
+        @SuppressLint("DiffUtilEquals")
         @Override
-        public boolean areContentsTheSame(Entities.Pet oldItem, Entities.Pet newItem) {
-            return oldItem.getName().equals(newItem.getName()) &&
-                    oldItem.getAvatar().equals(newItem.getAvatar()) &&
-                    oldItem.getDateOfBirth().equals(newItem.getDateOfBirth());
+        public boolean areContentsTheSame(Pet oldItem, Pet newItem) {
+            return oldItem.equals(newItem);
         }
+
     };
     private Context context;
     private OnItemClickListener listener;
@@ -68,22 +66,21 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Entities.Pet pet = getPetAt(holder.getAdapterPosition());
+        Pet pet = getPetAt(holder.getAdapterPosition());
 
-        DateFormat df = new SimpleDateFormat("d-M-y", Locale.getDefault());
-        String dateOfBirth = pet.getDateOfBirth();
+        DateFormat df = new SimpleDateFormat("d MMM y", Locale.getDefault());
+        String dateOfBirth = df.format(pet.getDateOfBirth());
+        if (pet.isDeceased()) {
+            dateOfBirth = dateOfBirth + " - " + df.format(pet.getDateOfDecease());
+        }
 
-        try {
-            Date dob = df.parse(pet.getDateOfBirth());
-            df = new SimpleDateFormat("d MMM y", Locale.getDefault());
-            dateOfBirth = df.format(dob);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if (pet.isAlive()) {
+            holder.rainbowIcon.setVisibility(View.GONE);
         }
 
         holder.name.setText(pet.getName());
         holder.dateOfBirth.setText(dateOfBirth);
-        holder.age.setText(calculateAge(pet.getDateOfBirth()));
+        holder.age.setText(calculateAge(pet.getDateOfBirth(), pet.getStatus(), pet.getDateOfDecease()));
 
         File imgFile = new File(pet.getAvatar());
         if (imgFile.exists()) {
@@ -97,17 +94,20 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
     }
 
 
-    private Entities.Pet getPetAt(int position) {
+    private Pet getPetAt(int position) {
         return getItem(position);
     }
 
-    private String calculateAge(String dateOfBirth) {
+    private String calculateAge(Date dateOfBirth, String status, Date dateOfDecease) {
         try {
             SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.context);
 
-            DateTimeFormatter formatter = DateTimeFormat.forPattern("dd-MM-yyyy");
-            DateTime start = formatter.parseDateTime(dateOfBirth);
+            DateTime start = new DateTime(dateOfBirth);
             DateTime end = DateTime.now();
+            if (status.equals("deceased")) {
+              end = new DateTime(dateOfDecease);
+            }
+
             Period period = new Period(start, end);
 
             int ageDisplay = Integer.parseInt(sharedPrefs.getString("ageDisplay", "0"));
@@ -142,17 +142,17 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
             }
             return text;
         } catch (IllegalArgumentException exception) {
-            return dateOfBirth;
+            return dateOfBirth.toString();
         }
     }
 
     public interface OnItemClickListener {
-        void onItemClick(Entities.Pet pet, TextView options);
+        void onItemClick(Pet pet, TextView options);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView name, age, dateOfBirth, options;
-        ImageView avatar;
+        ImageView avatar, rainbowIcon;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -160,6 +160,7 @@ public class PetRecyclerViewAdapter extends ListAdapter<Entities.Pet, PetRecycle
             age = itemView.findViewById(R.id.PetAge);
             dateOfBirth = itemView.findViewById(R.id.PetDateOfBirth);
             avatar = itemView.findViewById(R.id.PetAvatar);
+            rainbowIcon = itemView.findViewById(R.id.rainbowIcon);
             options = itemView.findViewById(R.id.OptionButton);
 
             options.setOnClickListener(v -> {

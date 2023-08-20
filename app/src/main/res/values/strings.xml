@@ -20,6 +20,7 @@
     <string name="pet_name">Name</string>
     <string name="pet_avatar">Picture</string>
     <string name="pet_date_of_birth">Date of Birth</string>
+    <string name="pet_date_of_decease">Date of Decease</string>
 
     <string name="pet_age_regular">%1$d years, %2$d months, %3$d days</string>
     <string name="pet_age_years">%1$d years</string>

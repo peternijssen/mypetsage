@@ -16,15 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import nl.peternijssen.mypetsage.dbs.DAOs;
-import nl.peternijssen.mypetsage.dbs.Databases;
-import nl.peternijssen.mypetsage.dbs.Entities;
+import java.util.Date;
+
+import nl.peternijssen.mypetsage.dbs.Pet;
+import nl.peternijssen.mypetsage.dbs.PetDao;
+import nl.peternijssen.mypetsage.dbs.PetDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int ADD_PET_REQUEST = 1;
     private static final int EDIT_PET_REQUEST = 2;
-    private DAOs.PetDao petDao;
+    private PetDao petDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,7 @@ public class MainActivity extends AppCompatActivity {
         androidx.preference.PreferenceManager
                 .setDefaultValues(this, R.xml.preferences, false);
 
-        Databases.PetDatabase petDatabase =
-                Databases.PetDatabase.getPetDatabase(this);
+        PetDatabase petDatabase = PetDatabase.getInstance(this);
         petDao = petDatabase.petDao();
 
         RecyclerView petRecyclerView = findViewById(R.id.PetList);
@@ -70,8 +71,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, PetActivity.class);
                         intent.putExtra(PetActivity.EXTRA_ID, pet.getId());
                         intent.putExtra(PetActivity.EXTRA_NAME, pet.getName());
-                        intent.putExtra(PetActivity.EXTRA_DATE_OF_BIRTH, pet.getDateOfBirth());
+                        intent.putExtra(PetActivity.EXTRA_DATE_OF_BIRTH, pet.getDateOfBirth().getTime());
                         intent.putExtra(PetActivity.EXTRA_AVATAR, pet.getAvatar());
+                        intent.putExtra(PetActivity.EXTRA_STATUS, pet.getStatus());
+                        intent.putExtra(PetActivity.EXTRA_DATE_OF_DECEASE, pet.getDateOfDecease().getTime());
 
                         startActivityForResult(intent, EDIT_PET_REQUEST);
                         return true;
@@ -117,8 +120,12 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == ADD_PET_REQUEST && resultCode == RESULT_OK) {
             String name = data.getStringExtra(PetActivity.EXTRA_NAME);
             String avatar = data.getStringExtra(PetActivity.EXTRA_AVATAR);
-            String dateOfBirth = data.getStringExtra(PetActivity.EXTRA_DATE_OF_BIRTH);
-            Entities.Pet pet = new Entities.Pet(name, avatar, dateOfBirth);
+            Date dateOfBirth = new Date();
+            dateOfBirth.setTime(data.getLongExtra(PetActivity.EXTRA_DATE_OF_BIRTH, -1));
+            String status = data.getStringExtra(PetActivity.EXTRA_STATUS);
+            Date dateOfDecease = new Date();
+            dateOfDecease.setTime(data.getLongExtra(PetActivity.EXTRA_DATE_OF_DECEASE, -1));
+            Pet pet = new Pet(name, avatar, dateOfBirth, status, dateOfDecease);
             petDao.insert(pet);
             Toast.makeText(this, String.format(getApplicationContext().getString(R.string.action_pet_created), name), Toast.LENGTH_SHORT).show();
         } else if (requestCode == EDIT_PET_REQUEST && resultCode == RESULT_OK) {
@@ -129,8 +136,12 @@ public class MainActivity extends AppCompatActivity {
             }
             String name = data.getStringExtra(PetActivity.EXTRA_NAME);
             String avatar = data.getStringExtra(PetActivity.EXTRA_AVATAR);
-            String dateOfBirth = data.getStringExtra(PetActivity.EXTRA_DATE_OF_BIRTH);
-            Entities.Pet pet = new Entities.Pet(name, avatar, dateOfBirth);
+            Date dateOfBirth = new Date();
+            dateOfBirth.setTime(data.getLongExtra(PetActivity.EXTRA_DATE_OF_BIRTH, -1));
+            String status = data.getStringExtra(PetActivity.EXTRA_STATUS);
+            Date dateOfDecease = new Date();
+            dateOfDecease.setTime(data.getLongExtra(PetActivity.EXTRA_DATE_OF_DECEASE, -1));
+            Pet pet = new Pet(name, avatar, dateOfBirth, status, dateOfDecease);
             pet.setId(id);
             petDao.update(pet);
             Toast.makeText(this, String.format(getApplicationContext().getString(R.string.action_pet_updated), name), Toast.LENGTH_SHORT).show();

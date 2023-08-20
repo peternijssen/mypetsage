@@ -10,8 +10,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,19 +26,25 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
-public class PetActivity extends AppCompatActivity {
+public class PetActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     public static final String EXTRA_ID = "nl.peternijssen.mypetsage.EXTRA_ID";
     public static final String EXTRA_NAME = "nl.peternijssen.mypetsage.EXTRA_NAME";
     public static final String EXTRA_AVATAR = "nl.peternijssen.mypetsage.EXTRA_AVATAR";
     public static final String EXTRA_DATE_OF_BIRTH = "nl.peternijssen.mypetsage.EXTRA_DATE_OF_BIRTH";
+    public static final String EXTRA_STATUS = "nl.peternijssen.mypetsage.EXTRA_STATUS";
+    public static final String EXTRA_DATE_OF_DECEASE = "nl.peternijssen.mypetsage.EXTRA_DATE_OF_DECEASE";
     private static final int IMAGE = 100;
     private File avatarFile = null;
-    private EditText nameEdt, dateOfBirthEdt;
+    private EditText nameEdt, dateOfBirthEdt, dateOfDeceaseEdt;
+    private String status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +55,34 @@ public class PetActivity extends AppCompatActivity {
 
         nameEdt = findViewById(R.id.PetName);
         dateOfBirthEdt = findViewById(R.id.PetDateOfBirth);
+        dateOfDeceaseEdt = findViewById(R.id.PetDateOfDecease);
         ImageButton avatarBtn = findViewById(R.id.PetAvatar);
+
+        Spinner spinner = (Spinner) findViewById(R.id.petStatus);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.petStatus, android.R.layout.simple_spinner_item);
+        spinner.setOnItemSelectedListener(this);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ID)) {
-            nameEdt.setText(intent.getStringExtra(EXTRA_NAME));
-            dateOfBirthEdt.setText(intent.getStringExtra(EXTRA_DATE_OF_BIRTH));
             setTitle(R.string.action_edit_pet);
+
+            nameEdt.setText(intent.getStringExtra(EXTRA_NAME));
+
+            Date dateOfBirth = new Date();
+            dateOfBirth.setTime(intent.getLongExtra(PetActivity.EXTRA_DATE_OF_BIRTH, -1));
+            dateOfBirthEdt.setText(dateOfBirth.toString());
+
+            Date dateOfDecease = new Date();
+            dateOfBirth.setTime(intent.getLongExtra(PetActivity.EXTRA_DATE_OF_DECEASE, -1));
+            dateOfDeceaseEdt.setText(dateOfDecease.toString());
+
+            String petStatus = intent.getStringExtra(EXTRA_STATUS);
+            if (petStatus.equals("deceased")) {
+                spinner.setSelection(1);
+            }
 
             // Set avatar on edit
             avatarFile = new File(intent.getStringExtra(EXTRA_AVATAR));
@@ -80,6 +111,14 @@ public class PetActivity extends AppCompatActivity {
             datePickerDialog.show();
         });
 
+        dateOfDeceaseEdt.setOnClickListener(v -> {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(PetActivity.this, (datePicker, years, months, days) -> {
+                String dates = days + "-" + (months + 1) + "-" + years;
+                dateOfDeceaseEdt.setText(dates);
+            }, year, month, day);
+            datePickerDialog.show();
+        });
+
         avatarBtn.setOnClickListener(v -> {
             Intent avatarIntent = new Intent(Intent.ACTION_PICK);
             avatarIntent.setType("image/*");
@@ -101,11 +140,28 @@ public class PetActivity extends AppCompatActivity {
         switch (id) {
             case R.id.action_save:
                 String name = nameEdt.getText().toString();
-                String dateOfBirth = dateOfBirthEdt.getText().toString();
-                if (name.isEmpty() || dateOfBirth.isEmpty()) {
+                String dob = dateOfBirthEdt.getText().toString();
+                String dod = dateOfDeceaseEdt.getText().toString();
+                Date dateOfBirth = new Date();
+                Date dateOfDecease = new Date();
+
+                DateFormat df = new SimpleDateFormat("d-M-y", Locale.getDefault());
+                try {
+                    dateOfBirth = df.parse(dob);
+                }  catch (ParseException e) {
+                    // Do nothing
+                }
+
+                try {
+                    dateOfDecease = df.parse(dod);
+                }  catch (ParseException e) {
+                    // Do nothing
+                }
+
+                if (name.isEmpty() || dob.isEmpty()) {
                     Toast.makeText(PetActivity.this, R.string.pet_form_failed, Toast.LENGTH_SHORT).show();
                 } else {
-                    savePet(name, dateOfBirth);
+                    savePet(name, dateOfBirth, dateOfDecease);
                 }
                 break;
             case android.R.id.home:
@@ -116,7 +172,7 @@ public class PetActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void savePet(String name, String dateOfBirth) {
+    private void savePet(String name, Date dateOfBirth, Date dateOfDecease) {
         Intent data = new Intent();
 
         data.putExtra(EXTRA_NAME, name);
@@ -125,7 +181,9 @@ public class PetActivity extends AppCompatActivity {
         } else {
             data.putExtra(EXTRA_AVATAR, avatarFile.getAbsolutePath());
         }
-        data.putExtra(EXTRA_DATE_OF_BIRTH, dateOfBirth);
+        data.putExtra(EXTRA_DATE_OF_BIRTH, dateOfBirth.getTime());
+        data.putExtra(EXTRA_STATUS, status);
+        data.putExtra(EXTRA_DATE_OF_DECEASE, dateOfDecease.getTime());
         int id = getIntent().getIntExtra(EXTRA_ID, -1);
         if (id != -1) {
             data.putExtra(EXTRA_ID, id);
@@ -144,7 +202,7 @@ public class PetActivity extends AppCompatActivity {
 
             ContextWrapper cw = new ContextWrapper(getApplicationContext());
             File directory = cw.getDir("avatars", Context.MODE_PRIVATE);
-            String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmm").format(new Date());
+            String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmm", Locale.getDefault()).format(new Date());
             avatarFile = new File(directory, timeStamp + ".jpg");
             Uri outputUri = Uri.fromFile(avatarFile);
 
@@ -161,7 +219,25 @@ public class PetActivity extends AppCompatActivity {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+        } else if (resultCode == UCrop.RESULT_ERROR) {
+            final Throwable cropError = UCrop.getError(data);
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        status = String.valueOf(parent.getItemAtPosition(pos)).toLowerCase();
+
+        if (status.equals("deceased")) {
+            dateOfDeceaseEdt.setVisibility(View.VISIBLE);
+        } else {
+            dateOfDeceaseEdt.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     private void openCropActivity(Uri sourceUri, Uri destinationUri) {
